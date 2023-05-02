@@ -10,8 +10,7 @@ import {
   Input,
   message,
 } from "antd";
-
-
+import { feedMsg } from "./message";
 import styled from "styled-components";
 
 // Styled component named StyledButton
@@ -19,8 +18,6 @@ const StyledButton = styled(Button)`
   background-color: black;
   color: white;
 `;
-
-
 
 const { Header, Content, Footer } = Layout;
 
@@ -44,7 +41,7 @@ const items = [
         key: "submenu-item-1",
         children: [
           {
-            label: "sub-item3" ,
+            label: "sub-item3",
           },
         ],
       },
@@ -52,39 +49,31 @@ const items = [
   },
 ];
 
-
-
-
-
 export const Home = () => {
+  // const [messageApi, contextHolder] = message.useMessage();
 
-const [messageApi, contextHolder] = message.useMessage();
+  //   const success = () => {
+  //   messageApi.open({
+  //     type: "success",
+  //     content: "Successfully submitted",
+  //   });
+  // };
+  // const error = () => {
+  //   messageApi.open({
+  //     type: "error",
+  //     content: "Please fill the form",
+  //   });
+  // };
 
-  const success = () => {
-  messageApi.open({
-    type: "success",
-    content: "Successfully submitted",
-  });
-};
-const error = () => {
-  messageApi.open({
-    type: "error",
-    content: "Please fill the form",
-  });
-};
+  const onFinish = (values: any) => {
+    return success;
+    console.log("Success:", values);
+  };
 
-const onFinish = (values: any) => {
-  return success();
-  console.log("Success:", values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  return error();
-  console.log("Failed:", errorInfo);
-};
-
-
-
+  const onFinishFailed = (errorInfo: any) => {
+    return error;
+    console.log("Failed:", errorInfo);
+  };
 
   return (
     <Layout className="layout">
