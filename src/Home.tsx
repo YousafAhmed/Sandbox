@@ -60,20 +60,20 @@ const items = [
 
 
 export const Home = () => {
-  // const [messageApi, contextHolder] = message.useMessage();
+   const [messageApi, contextHolder] = message.useMessage();
 
-  //   const success = () => {
-  //   messageApi.open({
-  //     type: "success",
-  //     content: "Successfully submitted",
-  //   });
-  // };
-  // const error = () => {
-  //   messageApi.open({
-  //     type: "error",
-  //     content: "Please fill the form",
-  //   });
-  // };
+    const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Successfully submitted",
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: "Please fill the form",
+    });
+  };
 
   const onFinish = (values: any) => {
     return success;
