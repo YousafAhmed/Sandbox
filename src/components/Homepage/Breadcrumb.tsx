@@ -1,7 +1,7 @@
 import React from "react";
 import { Breadcrumb } from "antd";
 
-const breadCrumbs = () => {
+const BreadCrumbs = () => {
   return (
     <Breadcrumb style={{ margin: "16px 0" }}>
       <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
@@ -11,4 +11,4 @@ const breadCrumbs = () => {
   );
 };
 
-export default breadCrumbs
+export default BreadCrumbs
