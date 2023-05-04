@@ -1,12 +1,15 @@
-import { Header } from "antd/lib/layout/layout";
-import { Home } from "./Home";
+import { Home } from "./components/Homepage/Home/Home";
+import { Routes, Route } from "react-router-dom";
+import TableData from "./components/Table/table";
 import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Header>
-        <Home />
-      </Header>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="Table" element={<TableData />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
