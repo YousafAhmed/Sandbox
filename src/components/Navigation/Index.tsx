@@ -7,7 +7,6 @@ import {
   AntDesignOutlined,
 } from "@ant-design/icons";
 
-
 const { Header } = Layout;
 
 export const Navigate = () => {
@@ -21,12 +20,18 @@ export const Navigate = () => {
           defaultSelectedKeys={["2"]}
         >
           <Menu.Item key="item1" title="home">
-            <HomeOutlined /> Home
+            {/* <Link to="/Home"> */}
+              <HomeOutlined /> Home
+            {/* </Link> */}
           </Menu.Item>
+
           <Menu.Item key="item2" style={{ float: "right" }} title="link">
             <a href="https://ant.design">
               <AntDesignOutlined /> Learn More
             </a>
+          </Menu.Item>
+          <Menu.Item key="item4" title="Form" style={{ float: "right" }}>
+            <Link to="Form">Sign In</Link>
           </Menu.Item>
           <Menu.Item key="item3" title="table">
             <Link to="/Table">
@@ -43,7 +48,6 @@ export const Navigate = () => {
               option-2
             </Menu.Item>
           </Menu.SubMenu>
-          
         </Menu>
       </div>
     </Header>
