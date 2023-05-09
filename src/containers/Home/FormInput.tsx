@@ -6,6 +6,7 @@ import {
   Checkbox,
   PageHeader,
   Divider,
+  Layout,
 } from "antd";
 import styled from "styled-components";
 import BreadCrumbs from "./Breadcrumb";
@@ -14,6 +15,8 @@ const StyledButton = styled(Button)`
   background-color: black;
   color: white;
 `;
+
+const { Content } = Layout;
 
 const FormPage = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -52,47 +55,53 @@ const FormPage = () => {
           subTitle="Please fill out your details"
         />
         <Divider />
-
-        <Form
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+        <Content>
+          <Form
+            name="basic"
+            labelCol={{ span: 9}}
+            wrapperCol={{ span: 18 }}
+            initialValues={{ remember: true }}
+            style = {{maxWidth: 1000}}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
           >
-            <Input />
-          </Form.Item>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
-          >
-            <Input.Password />
-          </Form.Item>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
 
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{ offset: 8, span: 16 }}
-          >
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+            <Form.Item
+              name="remember"
+              valuePropName="checked"
+              wrapperCol={{ offset: 8, span: 16 }}
+            >
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-            <StyledButton>Button</StyledButton>
-          </Form.Item>
-        </Form>
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+              <StyledButton>Button</StyledButton>
+            </Form.Item>
+          </Form>
+        </Content>
       </div>
     </>
   );

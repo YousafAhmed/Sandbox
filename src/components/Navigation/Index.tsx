@@ -5,6 +5,7 @@ import {
   HomeOutlined,
   TableOutlined,
   AntDesignOutlined,
+  LoginOutlined,
 } from "@ant-design/icons";
 
 const { Header } = Layout;
@@ -31,7 +32,7 @@ export const Navigate = () => {
             </a>
           </Menu.Item>
           <Menu.Item key="item4" title="Form" style={{ float: "right" }}>
-            <Link to="Form">Sign In</Link>
+            <Link to="Form">  Sign In   <LoginOutlined /></Link>
           </Menu.Item>
           <Menu.Item key="item3" title="table">
             <Link to="/Table">
