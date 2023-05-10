@@ -11,6 +11,7 @@ import {
 const { Header } = Layout;
 
 export const Navigate = () => {
+   
   return (
     <Header>
       <div className="logo">
@@ -22,7 +23,7 @@ export const Navigate = () => {
         >
           <Menu.Item key="item1" title="home">
             {/* <Link to="/Home"> */}
-              <HomeOutlined /> Home
+              <HomeOutlined /> Home 
             {/* </Link> */}
           </Menu.Item>
 
