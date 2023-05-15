@@ -11,7 +11,6 @@ import {
 const { Header } = Layout;
 
 export const Navigate = () => {
-   
   return (
     <Header>
       <div className="logo">
@@ -22,9 +21,9 @@ export const Navigate = () => {
           defaultSelectedKeys={["2"]}
         >
           <Menu.Item key="item1" title="home">
-            {/* <Link to="/Home"> */}
-              <HomeOutlined /> Home 
-            {/* </Link> */}
+            <Link to="/Home">
+              <HomeOutlined /> Home
+            </Link>
           </Menu.Item>
 
           <Menu.Item key="item2" style={{ float: "right" }} title="link">
@@ -33,7 +32,9 @@ export const Navigate = () => {
             </a>
           </Menu.Item>
           <Menu.Item key="item4" title="Form" style={{ float: "right" }}>
-            <Link to="Form">  Sign In   <LoginOutlined /></Link>
+            <Link to="/Form">
+              Sign In <LoginOutlined />
+            </Link>
           </Menu.Item>
           <Menu.Item key="item3" title="table">
             <Link to="/Table">

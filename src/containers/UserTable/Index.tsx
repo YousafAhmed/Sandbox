@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Space } from "antd";
 import { useState, useEffect } from "react";
-import Tablefunc from "../../../components/Table/Index";
+import Tablefunc from "../../components/Table/Index";
 
 const { Content } = Layout;
 

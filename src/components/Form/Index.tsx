@@ -7,9 +7,10 @@ import {
   PageHeader,
   Divider,
   Layout,
+  
 } from "antd";
 import styled from "styled-components";
-import BreadCrumbs from "./Breadcrumb";
+
 
 const StyledButton = styled(Button)`
   background-color: black;
@@ -35,19 +36,19 @@ const FormPage = () => {
 
   const onFinish = (values: any) => {
     return success();
-    console.log("Success:", values);
+    // console.log("Success:", values);
   };
 
   const onFinishFailed = (errorInfo: any) => {
     return error();
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
 
   return (
     <>
       {contextHolder}
 
-      <div className="site-layout-content">
+      
         <PageHeader
           className="site-page-header"
           onBack={() => null}
@@ -102,7 +103,8 @@ const FormPage = () => {
             </Form.Item>
           </Form>
         </Content>
-      </div>
+        
+      
     </>
   );
 };

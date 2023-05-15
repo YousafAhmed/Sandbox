@@ -1,15 +1,15 @@
-import { Main } from "./containers/Home/Index";
-
+import { Main } from "./containers/Main/Index";
+import Page from "./containers/Homepage/Index";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import TableData from "./containers/UserTable/Tablecall/Index";
-import FormPage from "./containers/Home/FormInput";
+import TableData from "./containers/UserTable/Index";
+import FormPage from "./components/Form/Index";
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route path="Sign" element={<Main/>}/>
+          <Route path="Home" element={<Page/>}/>
           <Route path="Table" element={<TableData />} />
           <Route path="Form" element={<FormPage />} />
         </Route>
