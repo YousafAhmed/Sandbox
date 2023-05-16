@@ -1,6 +1,8 @@
+import React from "react";
 import { useState, SetStateAction, Dispatch } from "react";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Modal, Input, Table, Space } from "antd";
+import { useDispatch } from "react-redux";
 
 
 type userTableProps = {
@@ -12,6 +14,7 @@ type userTableProps = {
 const Tablefunc = ({ dataSource, setDataSource, loading }: userTableProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editRec, setEditRec] = useState<any>({});
+  const dispatch = useDispatch()
 
   const columns = [
     {
