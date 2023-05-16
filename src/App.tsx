@@ -1,4 +1,6 @@
 import { Main } from "./containers/Main/Index";
+import React from "react";
+import { ReactDOM } from "react";
 import Page from "./containers/Homepage/Index";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
