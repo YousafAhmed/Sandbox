@@ -2,7 +2,6 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { getUserSuccess } from "./userslice";
 
 function* workGetUserFetch():any {
-  console.log("in saga")
   const users = yield call(() =>
     fetch("https://jsonplaceholder.typicode.com/users")
   );

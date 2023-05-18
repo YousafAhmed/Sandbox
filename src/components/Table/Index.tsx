@@ -3,7 +3,7 @@ import { useState, SetStateAction, Dispatch } from "react";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Modal, Input, Table, Space } from "antd";
 import { useDispatch } from "react-redux";
-
+import { deleteUser } from "../../redux/userslice";
 
 type userTableProps = {
   dataSource: Object[];
@@ -14,7 +14,7 @@ type userTableProps = {
 const Tablefunc = ({ dataSource, setDataSource, loading }: userTableProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editRec, setEditRec] = useState<any>({});
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const columns = [
     {
@@ -36,17 +36,17 @@ const Tablefunc = ({ dataSource, setDataSource, loading }: userTableProps) => {
     {
       key: "4",
       title: "Actions",
-      render: (stid: any) => {
+      render: (record: any) => {
         return (
           <>
             <EditOutlined
               onClick={() => {
-                onEdit(stid);
+                onEdit(record);
               }}
             />
             <DeleteOutlined
               onClick={() => {
-                onDelete(stid);
+                onDelete(record);
               }}
               style={{ color: "red", marginLeft: 12 }}
             />
@@ -56,14 +56,13 @@ const Tablefunc = ({ dataSource, setDataSource, loading }: userTableProps) => {
     },
   ];
 
-  const onDelete = (stid: any) => {
+  const onDelete = (record: any) => {
     Modal.confirm({
       title: "Are you sure?",
       okText: "Yes",
       okType: "danger",
       onOk: () => {
-        const newData = dataSource.filter((item: any) => item.id !== stid.id);
-        setDataSource(newData);
+        dispatch(deleteUser(record));
       },
     });
   };
