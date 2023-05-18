@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UserState,User } from "./types";
+import { UserState, User } from "./types";
 
 export const initialState: UserState = {
   users: [],
@@ -21,6 +21,11 @@ export const userSlice = createSlice({
     getUserFailed: (state) => {
       state.isLoading = false;
     },
+    deleteUser: (state: any, action) => {
+      state.users = state.users.filter(
+        (item: any) => item.id !== action.payload.id
+      );
+    },
   },
 });
 
@@ -28,5 +33,6 @@ export const {
   getUsersFetch,
   getUserSuccess,
   getUserFailed,
+  deleteUser,
 } = userSlice.actions;
 export default userSlice.reducer;

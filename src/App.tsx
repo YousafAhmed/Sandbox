@@ -1,6 +1,5 @@
 import { Main } from "./containers/Main/Index";
 import React from "react";
-import { ReactDOM } from "react";
 import Page from "./containers/Homepage/Index";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -11,7 +10,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route path="Home" element={<Page/>}/>
+          <Route path="Home" element={<Page />} />
           <Route path="Table" element={<TableData />} />
           <Route path="Form" element={<FormPage />} />
         </Route>
