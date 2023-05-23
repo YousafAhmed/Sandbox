@@ -53,8 +53,7 @@ const FormPage = () => {
         <PageHeader
           className="site-page-header"
           onBack={() => null}
-          title="Details"
-          subTitle="Please fill out your details"
+          title="Please fill out your details"
         />
         <Divider />
         <Content>
@@ -100,7 +99,7 @@ const FormPage = () => {
               <Button type="primary" htmlType="submit">
                 Submit
               </Button>
-              <StyledButton>Button</StyledButton>
+              {/* <StyledButton>Button</StyledButton> */}
             </Form.Item>
           </Form>
         </Content>

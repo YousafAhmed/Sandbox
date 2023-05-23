@@ -2,7 +2,7 @@ import React from "react";
 import { Layout, Space } from "antd";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsersFetch } from "../../redux/userslice";
+import { getUsersFetch } from "./userRedux/userslice";
 import Tablefunc from "../../components/Table/Index";
 
 const { Content } = Layout;
@@ -13,7 +13,6 @@ const TableData = () => {
 
   useEffect(() => {
     dispatch(getUsersFetch());
-    console.log("saga triggered");
   }, [dispatch]);
 
   return (

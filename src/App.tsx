@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import TableData from "./containers/UserTable/Index";
 import FormPage from "./components/Form/Index";
+import ProductData from "./containers/Shop/Index";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
           <Route path="Home" element={<Page />} />
           <Route path="Table" element={<TableData />} />
           <Route path="Form" element={<FormPage />} />
+          <Route path="Shop" element={<ProductData />} />
         </Route>
       </Routes>
     </div>

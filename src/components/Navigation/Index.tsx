@@ -6,6 +6,7 @@ import {
   TableOutlined,
   AntDesignOutlined,
   LoginOutlined,
+  ShoppingOutlined,
 } from "@ant-design/icons";
 
 const { Header } = Layout;
@@ -31,7 +32,7 @@ export const Navigate = () => {
               <AntDesignOutlined /> Learn More
             </a>
           </Menu.Item>
-          <Menu.Item key="item4" title="Form" style={{ float: "right" }}>
+          <Menu.Item key="item4" title="Sign-In" style={{ float: "right" }}>
             <Link to="/Form">
               Sign In <LoginOutlined />
             </Link>
@@ -41,15 +42,17 @@ export const Navigate = () => {
               <TableOutlined /> Table
             </Link>
           </Menu.Item>
-          <Menu.SubMenu key="item3.1" title="Menu">
-            <Menu.SubMenu key="item3.1a" title="option-1">
-              <Menu.Item key="item3.1a1" title="hey">
+          <Menu.SubMenu key="item3.1" title="Shop" >
+            <Menu.Item key="item3.1a" title="Option-1">
+              <Link to ='/Shop'>
+             Product
+             </Link>
+            </Menu.Item>
+            <Menu.SubMenu key="item3.1b" title="Option-2">
+            <Menu.Item key="item3.1b1" title="hey">
                 Hey
               </Menu.Item>
             </Menu.SubMenu>
-            <Menu.Item key="item3.1b" title="option2">
-              option-2
-            </Menu.Item>
           </Menu.SubMenu>
         </Menu>
       </div>

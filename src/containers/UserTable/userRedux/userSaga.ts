@@ -9,6 +9,8 @@ function* workGetUserFetch():any {
   yield put(getUserSuccess(formattedUsers));
 }
 
+
+
 function* userSaga() {
   yield takeEvery("userList/getUsersFetch", workGetUserFetch);
 }

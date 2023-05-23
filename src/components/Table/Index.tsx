@@ -3,7 +3,7 @@ import { useState, SetStateAction, Dispatch } from "react";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Modal, Input, Table, Space } from "antd";
 import { useDispatch } from "react-redux";
-import { deleteUser } from "../../redux/userslice";
+import { deleteUser } from "../../containers/UserTable/userRedux/userslice";
 
 type userTableProps = {
   dataSource: Object[];
