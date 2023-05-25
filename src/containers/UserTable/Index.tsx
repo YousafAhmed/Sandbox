@@ -2,7 +2,7 @@ import React from "react";
 import { Layout, Space } from "antd";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsersFetch } from "./userRedux/userslice";
+import { getUsersFetch } from "./userslice";
 import Tablefunc from "../../components/Table/Index";
 
 const { Content } = Layout;

@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { getApiSuccess } from "./productSlice";
+import { getApiSuccess } from "./shopSlice";
 
 function* workGetApiFetch(): any {
   const product = yield call(() => fetch("https://fakestoreapi.com/products"));

@@ -1,6 +1,6 @@
 import { fork, all } from "redux-saga/effects";
-import userSaga from "../../containers/UserTable/userRedux/userSaga";
-import productSaga from "../../containers/Shop/shopRedux/productsSaga";
+import userSaga from "../../containers/UserTable/userSaga";
+import productSaga from "../../containers/Shop/shopSaga";
 
 function* rootSaga() {
   yield all([fork(productSaga), fork(userSaga)]);

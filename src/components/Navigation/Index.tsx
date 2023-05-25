@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { Dropdown, Layout, Menu, Space } from "antd";
+import Cart from "../../containers/Cart/index";
 import {
   HomeOutlined,
   TableOutlined,
   AntDesignOutlined,
   LoginOutlined,
-  ShoppingOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 
 const { Header } = Layout;
 
-export const Navigate = () => {
+export const Navigate = (title: any,price: any) => {
   return (
     <Header>
       <div className="logo">
@@ -27,10 +28,13 @@ export const Navigate = () => {
             </Link>
           </Menu.Item>
 
-          <Menu.Item key="item2" style={{ float: "right" }} title="link">
-            <a href="https://ant.design">
-              <AntDesignOutlined /> Learn More
-            </a>
+          <Menu.Item key="item2" style={{ float: "right" }} title="Cart">
+            <Dropdown trigger={['click']} menu={{title}}>
+              <Space>
+                <ShoppingCartOutlined style={{fontSize: '18px'}}/>
+              <Cart/>
+              </Space>
+            </Dropdown>
           </Menu.Item>
           <Menu.Item key="item4" title="Sign-In" style={{ float: "right" }}>
             <Link to="/Form">

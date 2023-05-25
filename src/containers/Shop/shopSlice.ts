@@ -22,11 +22,7 @@ export const shopSlice = createSlice({
     getApiFailed: (state) => {
       state.isLoading = false;
     },
-    // // deleteProduct: (state: any, action) => {
-    // //   state.product = state.product.filter(
-    // //     (item: any) => item.id !== action.payload.id
-    // //   );
-    // },
+    
   },
 });
 
