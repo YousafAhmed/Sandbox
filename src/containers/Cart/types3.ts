@@ -8,4 +8,6 @@ export interface Cart {
   export interface UserState {
     isLoading: boolean;
     cart: Cart[];
+    cartTotalQuantity: number;
+    cartTotalAmount: number;
   }

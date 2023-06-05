@@ -1,18 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Dropdown, Layout, Menu, Space } from "antd";
-import Cart from "../../containers/Cart/index";
 import {
   HomeOutlined,
   TableOutlined,
-  AntDesignOutlined,
   LoginOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import Cart from "../../containers/Cart";
 
 const { Header } = Layout;
 
-export const Navigate = (title: any,price: any) => {
+export const Navigate = (title: any, total: any) => {
   return (
     <Header>
       <div className="logo">
@@ -29,13 +28,11 @@ export const Navigate = (title: any,price: any) => {
           </Menu.Item>
 
           <Menu.Item key="item2" style={{ float: "right" }} title="Cart">
-            <Dropdown trigger={['click']} menu={{title}}>
-              <Space>
-                <ShoppingCartOutlined style={{fontSize: '18px'}}/>
-              <Cart/>
-              </Space>
-            </Dropdown>
+            <Link to = '/CartItem'>
+            <ShoppingCartOutlined style={{ fontSize: "18px" }} />
+            </Link>
           </Menu.Item>
+
           <Menu.Item key="item4" title="Sign-In" style={{ float: "right" }}>
             <Link to="/Form">
               Sign In <LoginOutlined />
@@ -46,14 +43,12 @@ export const Navigate = (title: any,price: any) => {
               <TableOutlined /> Table
             </Link>
           </Menu.Item>
-          <Menu.SubMenu key="item3.1" title="Shop" >
+          <Menu.SubMenu key="item3.1" title="Shop">
             <Menu.Item key="item3.1a" title="Option-1">
-              <Link to ='/Shop'>
-             Product
-             </Link>
+              <Link to="/Shop">Product</Link>
             </Menu.Item>
             <Menu.SubMenu key="item3.1b" title="Option-2">
-            <Menu.Item key="item3.1b1" title="hey">
+              <Menu.Item key="item3.1b1" title="hey">
                 Hey
               </Menu.Item>
             </Menu.SubMenu>
