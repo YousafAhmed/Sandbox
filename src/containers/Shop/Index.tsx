@@ -16,9 +16,9 @@ const ProductData = () => {
     dispatch(getApiFetch());
   }, [dispatch]);
 
-  const handleAddProduct = (product: any) => {
-    dispatch(addToCart(product));
-  };
+  // const handleAddProduct = (product: any) => {
+  //   dispatch(addToCart(product));
+  // };
 
   return (
     <Content>
@@ -36,14 +36,16 @@ const ProductData = () => {
                     fontSize: "15px",
                     fontWeight: "700",
                   }}
-                  cover={<img alt="bleh" src={p.image} />}
+                  cover={<img alt="image" src={p.image} />}
                 >
                   <Meta title={p.title} />
                   <button
                     style={{ margin: "10px" }}
-                    onClick={() => handleAddProduct(p)}
+                    onClick={() => dispatch(addToCart(p))}
+                  
                   >
                     Add to cart
+                    
                   </button>
                 </Card>
               </Content>
@@ -54,6 +56,7 @@ const ProductData = () => {
       </Row>
     </Content>
   );
+  
 };
 
 export default ProductData;
