@@ -50,13 +50,13 @@ const FormPage = () => {
       {contextHolder}
 
       
-        <PageHeader
+        <PageHeader style={{marginTop:"80px"}}
           className="site-page-header"
-          onBack={() => null}
+          onBack={() => history.back()}
           title="Please fill out your details"
         />
         <Divider />
-        <Content>
+        <Content >
           <Form
             name="basic"
             labelCol={{ span: 9}}

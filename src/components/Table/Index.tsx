@@ -139,6 +139,7 @@ const Tablefunc = ({ dataSource, setDataSource, loading }: userTableProps) => {
         </Space>
       </Modal>
       <Table
+      style={{marginTop:"80px"}}
         bordered={true}
         size="small"
         loading={loading}
