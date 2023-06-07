@@ -4,8 +4,8 @@ import { Cart, UserState } from "./types3";
 export const initialState: UserState = {
   cart: [],
   isLoading: false,
-  cartTotalQuantity: 0,
-  cartTotalAmount: 0,
+  cartTotalQuantity:0,
+  cartTotalAmount:0,
 };
 
 // console.log(initialState.cart)
@@ -60,10 +60,10 @@ const cartSlice = createSlice({
         state.cart = nextCartItems;
       }
     },
-    getTotals: (state, action) => {
+    getTotals:(state, action) =>{
       let { total, quantity } = state.cart.reduce(
         (cartTotal, cartItem) => {
-          const { price, quantity }: any = cartItem;
+          const { price, quantity }:any = cartItem;
           const itemTotal = price * quantity;
 
           cartTotal.total += itemTotal;
@@ -80,8 +80,8 @@ const cartSlice = createSlice({
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = total;
     },
-    clearCart: (state: any) => {
-      state.cart = [];
+    clearCart: (state:any) =>{
+      state.cart =[]
     },
   },
 });
@@ -91,7 +91,6 @@ export const {
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
-  getTotals,
-  clearCart,
+  getTotals,clearCart
 } = cartSlice.actions;
 export default cartSlice.reducer;

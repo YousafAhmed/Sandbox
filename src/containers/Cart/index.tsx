@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "./cartslice";
 import { Button } from "antd";
 import CartItem from "./cartItem";
+import Page from "../Homepage/Index";
 
 const Cart = () => {
   const dispatch = useDispatch();
