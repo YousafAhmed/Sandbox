@@ -7,16 +7,16 @@ import {
   UserOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import Cart from "../../containers/Cart";
+
 
 const { Header } = Layout;
 
 export const Navigate = (title: any, total: any) => {
   return (
-    <Header style={{width: "100%",position:"fixed",zIndex:"10"}}>
+    <Header style={{width: "100%",position:"fixed",zIndex:"10", background: "linear-gradient(to right, #141e30, #243b55)"}}>
       {/* <div className="logo"> */}
         <Menu
-          style={{  display: "block", marginBottom:"50px" }}
+          style={{  display: "block", background: "linear-gradient(to right, #141e30, #243b55)" }}
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={["2"]}

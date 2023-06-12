@@ -4,11 +4,39 @@ import {
   decrementQuantity,
   getTotals,
   clearCart,
+  removeFromCart,
 } from "./cartslice";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { Card, Layout, PageHeader, Space, Typography, Button } from "antd";
-import { DeleteOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
+
+import { Card, Layout, PageHeader, Space, Typography, Button , Image} from "antd";
+import {
+  DeleteOutlined,
+  LeftOutlined,
+  RightOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
+import ProductData from "../Shop/Index";
+import {
+  CardContainer,
+  EmptyCartContainer,
+  Header,
+  HeadingContainer,
+  HeadingText,
+  ItemText,
+  NameText,
+  PriceText,
+  QuantityText,
+  TextContainer,
+  TotalText,
+  CartContainer,
+  TitleText,
+  Pricedisplay,
+  ArrowButton,
+  Quantitydisplay,
+  TotalQuantity,
+  RemoveButton,
+  TotalAmount,
+} from "./styles";
 
 const { Meta } = Card;
 const { Content } = Layout;
@@ -18,134 +46,112 @@ const CartItem = ({ id }: any) => {
   const products = useSelector((state: any) => state.cart.cart);
   const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(getTotals());
-  //   }, [products]);
+  // useEffect(() => {
+  //   dispatch(getTotals(total));
+  // }, [total]);
 
   if (products < 1) {
     return (
-      <Content style={{ marginTop: "80px" }}>
-        <PageHeader
+      <EmptyCartContainer>
+        <Header
           className="site-page-header"
           onBack={() => history.back()}
-          title="Your Cart"
-          style={{ marginBottom: "50px", fontSize: "26px" }}
+          title="Go Back"
         />
-        <Text style={{ fontSize: "24px", textAlign: "center" }}>
+        <Text
+          style={{ fontSize: "44px", textAlign: "center", color: "#29465B" }}
+        >
           Your Cart is empty!
         </Text>
-      </Content>
+      </EmptyCartContainer>
     );
   }
 
   return (
-    <Content style={{ marginTop: "80px" }}>
-      <PageHeader
+    <Content>
+      <Header
         className="site-page-header"
         onBack={() => history.back()}
-        title="Your Cart"
-        style={{ marginBottom: "50px", fontSize: "26px" }}
+        title="Go Back"
       />
+      <HeadingContainer>
+        <HeadingText>
+          YOUR CART
+          <ShoppingCartOutlined style={{ color: "#29465B" }} />
+        </HeadingText>
+      </HeadingContainer>
+
+      <TextContainer>
+        <ItemText>ITEM</ItemText>
+        <NameText>NAME</NameText>
+        <PriceText>PRICE</PriceText>
+        <QuantityText>QUANTITY</QuantityText>
+        <TotalText>TOTAL</TotalText>
+      </TextContainer>
 
       {products.map((p: any) => {
         return (
           <>
-            <Content
-              style={{
-                marginLeft: "250px",
-                marginRight: "250px",
-                marginBottom: "10px",
-              }}
-            >
-              <Card
+            <CartContainer>
+              <CardContainer
                 hoverable
-                style={{
-                  display: "flex",
-                  fontSize: "15px",
-                  fontWeight: "700",
-                }}
                 cover={
-                  <img
+                  <Image
                     alt="image"
                     src={p.image}
-                    style={{ display: "block", justifyItems: "center" }}
+                    style={{
+                      display: "flex",
+                      marginTop: "0px",
+                      marginLeft: "10px",
+                      width: "80%",
+                      textAlign: "center",
+                    }}
                   />
                 }
               >
                 <Space style={{ display: "flex", margin: "20px" }}>
-                  <Meta
-                    title={p.title}
-                    style={{
-                      marginRight: "50px",
-                      width: "240px",
-                      textAlign: "left",
-                    }}
-                  />
-                  <Text
-                    style={{
-                      width: "80px",
-                      textAlign: "center",
-                      display: "flex",
-                    }}
-                  >
-                    ${p.price}
-                  </Text>
+                  <TitleText title={p.title} />
+                  <Pricedisplay>${p.price}</Pricedisplay>
 
-                  <Button
-                    style={{ border: "none", display: "flex" }}
-                    onClick={() => dispatch(decrementQuantity(p))}
-                  >
-                    <LeftOutlined style={{ marginTop: "4px" }} />
-                  </Button>
-                  <Text style={{ display: "block", width: "20px" }}>
-                    {p.quantity}
-                  </Text>
+                  <ArrowButton onClick={() => dispatch(decrementQuantity(p))}>
+                    <LeftOutlined
+                      style={{ marginTop: "4px", color: "#29465B" }}
+                    />
+                  </ArrowButton>
+                  <Quantitydisplay>{p.quantity}</Quantitydisplay>
 
-                  <Button
-                    style={{ border: "none", display: "flex" }}
-                    onClick={() => dispatch(incrementQuantity(p))}
-                  >
-                    <RightOutlined style={{ marginTop: "4px" }} />
-                  </Button>
+                  <ArrowButton onClick={() => dispatch(incrementQuantity(p))}>
+                    <RightOutlined
+                      style={{ marginTop: "4px", color: "#29465B" }}
+                    />
+                  </ArrowButton>
 
                   <>
-                    <Text
-                      style={{
-                        display: "block",
-                        width: "100px",
-                      }}
-                    >
-                      ${p.price * p.quantity}
-                    </Text>
+                    <TotalQuantity>
+                      ${(p.price * p.quantity).toFixed(2)}
+                    </TotalQuantity>
                   </>
                   <Space style={{ display: "flex", marginLeft: "30px" }}>
-                    <Button
-                      style={{ display: "flex", border: "none" }}
-                      onClick={() => dispatch(clearCart(p))}
+                    <RemoveButton
+                      style={{}}
+                      onClick={() => dispatch(removeFromCart(p))}
                     >
                       <DeleteOutlined
                         style={{ marginTop: "4px", fontSize: "15px" }}
                       />
-                    </Button>
+                    </RemoveButton>
                   </Space>
                 </Space>
-              </Card>
-            </Content>
+              </CardContainer>
+            </CartContainer>
           </>
         );
       })}
-      <Text
-        underline
-        style={{
-          display: "block",
-          float: "right",
-          marginRight: "380px",
-          fontSize: "24px",
-          fontWeight: 500,
-        }}
-      >
-        Sub-Total:
-      </Text>
+      <Content>
+        <TotalAmount underline>
+          SUB-TOTAL:
+        </TotalAmount>
+      </Content>
     </Content>
   );
 };

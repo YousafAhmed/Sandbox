@@ -46,11 +46,11 @@ const FormPage = () => {
   };
 
   return (
-    <>
+    <Content>
       {contextHolder}
 
-      
-        <PageHeader style={{marginTop:"80px"}}
+      <Content>
+        <PageHeader style={{}}
           className="site-page-header"
           onBack={() => history.back()}
           title="Please fill out your details"
@@ -103,9 +103,9 @@ const FormPage = () => {
             </Form.Item>
           </Form>
         </Content>
-        
+        </Content>
       
-    </>
+    </Content>
   );
 };
 
