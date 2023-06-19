@@ -8,14 +8,21 @@ import {
 } from "./cartslice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Card, Layout, PageHeader, Space, Typography, Button , Image} from "antd";
+import {
+  Card,
+  Layout,
+  PageHeader,
+  Space,
+  Typography,
+  Button,
+  Image,
+} from "antd";
 import {
   DeleteOutlined,
   LeftOutlined,
   RightOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import ProductData from "../Shop/Index";
 import {
   CardContainer,
   EmptyCartContainer,
@@ -36,11 +43,15 @@ import {
   TotalQuantity,
   RemoveButton,
   TotalAmount,
+  Fullcartcontainer,
+  Cartimg,
+  Emptycartimg,
+  Emptytext,
+  Emptycartbutton,
 } from "./styles";
 
-const { Meta } = Card;
 const { Content } = Layout;
-const { Text, Link } = Typography;
+const { Text } = Typography;
 
 const CartItem = ({ id }: any) => {
   const products = useSelector((state: any) => state.cart.cart);
@@ -58,17 +69,15 @@ const CartItem = ({ id }: any) => {
           onBack={() => history.back()}
           title="Go Back"
         />
-        <Text
-          style={{ fontSize: "44px", textAlign: "center", color: "#29465B" }}
-        >
-          Your Cart is empty!
-        </Text>
+        <Emptycartimg preview={false} src="empty-cart.png"></Emptycartimg>
+        <Emptytext>Your Cart is empty!</Emptytext>
+        <Emptycartbutton size="large" href="/Shop">Go to Shop</Emptycartbutton>
       </EmptyCartContainer>
     );
   }
 
   return (
-    <Content>
+    <Fullcartcontainer>
       <Header
         className="site-page-header"
         onBack={() => history.back()}
@@ -95,23 +104,11 @@ const CartItem = ({ id }: any) => {
             <CartContainer>
               <CardContainer
                 hoverable
-                cover={
-                  <Image
-                    alt="image"
-                    src={p.image}
-                    style={{
-                      display: "flex",
-                      marginTop: "0px",
-                      marginLeft: "10px",
-                      width: "80%",
-                      textAlign: "center",
-                    }}
-                  />
-                }
+                cover={<Cartimg preview={false} alt="image" src={p.image} />}
               >
                 <Space style={{ display: "flex", margin: "20px" }}>
                   <TitleText title={p.title} />
-                  <Pricedisplay>${p.price}</Pricedisplay>
+                  <Pricedisplay>${p.price.toFixed(2)}</Pricedisplay>
 
                   <ArrowButton onClick={() => dispatch(decrementQuantity(p))}>
                     <LeftOutlined
@@ -148,11 +145,9 @@ const CartItem = ({ id }: any) => {
         );
       })}
       <Content>
-        <TotalAmount underline>
-          SUB-TOTAL:
-        </TotalAmount>
+        <TotalAmount underline>SUB-TOTAL:</TotalAmount>
       </Content>
-    </Content>
+    </Fullcartcontainer>
   );
 };
 
