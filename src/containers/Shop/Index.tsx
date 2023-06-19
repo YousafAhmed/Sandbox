@@ -4,7 +4,13 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getApiFetch } from "./shopSlice";
 import { addToCart } from "../Cart/cartslice";
-import { Container, Cardcontainer, Buttonstyle, Subcontainer } from "./styles";
+import {
+  Container,
+  Cardcontainer,
+  Subcontainer,
+  Cardimg,
+  Styledbutton,
+} from "./styles";
 
 const { Content } = Layout;
 const { Meta } = Card;
@@ -19,41 +25,33 @@ const ProductData = () => {
   }, [dispatch]);
 
   return (
+    
     <Container>
       <Row gutter={50}>
         {products.map((p: any) => {
           return (
+            
             <>
               <Subcontainer>
                 <Cardcontainer
                   hoverable
-                  cover={
-                    <img
-                      alt="image"
-                      src={p.image}
-                      style={{
-                        width: "220px",
-                        height: "240px",
-                        marginLeft: "50px",
-                        marginTop: "15px",
-                      }}
-                    />
-                  }
+                  cover={<Cardimg alt="image" src={p.image} preview={false} />}
                 >
                   <Meta style={{ color: "#29465B" }} title={p.title} />
 
                   <Space style={{ marginTop: "8px" }}>
                     <Text style={{ color: "#29465B" }} italic>
-                      ${p.price}
+                      ${p.price.toFixed(2)}
                     </Text>
                   </Space>
 
-                  <Buttonstyle
+                  <Styledbutton
+                    size="large"
                     // type="primary"
                     onClick={() => dispatch(addToCart(p))}
                   >
                     Add to cart
-                  </Buttonstyle>
+                  </Styledbutton>
                 </Cardcontainer>
               </Subcontainer>
             </>
