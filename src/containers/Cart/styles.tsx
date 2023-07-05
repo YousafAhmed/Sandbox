@@ -5,11 +5,11 @@ const { Content } = Layout;
 const { Text } = Typography;
 const { Meta } = Card;
 
-export const EmptyCartContainer = styled(Content)`
+export const StyledEmptyCartContainer = styled(Content)`
   color: #29465b;
   margin-bottom: 350px;
 `;
-export const Emptycartimg = styled(Image)`
+export const StyledEmptycartimg = styled(Image)`
   display: flex;
   width:40%;
   text-align: center;
@@ -17,7 +17,7 @@ export const Emptycartimg = styled(Image)`
   margin-left: 130px;
   
 `
-export const Emptytext = styled(Text)`
+export const StyledEmptytext = styled(Text)`
   display: flex;
   font-size: 30px;
   color: #29465B;
@@ -26,7 +26,7 @@ export const Emptytext = styled(Text)`
   justify-content: center;
 
 `
-export const Emptycartbutton = styled(Button)`
+export const StyledEmptycartbutton = styled(Button)`
   margin: 14px;
   font-size: 20px;
   display: flex;
@@ -43,20 +43,21 @@ export const Emptycartbutton = styled(Button)`
   }
 `;
 
-export const Header = styled(PageHeader)`
+export const StyledHeader = styled(PageHeader)`
   margin-bottom: 30px;
+  margin-top:20px;
   font-size: 26px;
   color: #29465b;
 `;
 
-export const HeadingContainer = styled(Content)`
+export const StyledHeadingContainer = styled(Content)`
   display: flex;
-  margin-left: 600px;
+  margin-left: 580px;
   text-align: center;
   // margin-Top:100px
 `;
 
-export const HeadingText = styled(Text)`
+export const StyledHeadingText = styled(Text)`
   // marginLeft: "30px",
   width: 200px;
   text-align: center;
@@ -66,7 +67,7 @@ export const HeadingText = styled(Text)`
   /* margin-top: 5px; */
 `;
 
-export const TextContainer = styled(Card)`
+export const StyledTextContainer = styled(Card)`
   display: flex;
   text-align: left;
   margin-left: 250px;
@@ -76,7 +77,7 @@ export const TextContainer = styled(Card)`
   border: none;
 `;
 
-export const ItemText = styled(Text)`
+export const StyledItemText = styled(Text)`
   margin-left: 0px;
   margin-right: 10px;
   width: 50px;
@@ -86,7 +87,7 @@ export const ItemText = styled(Text)`
   color: #29465b;
 `;
 
-export const NameText = styled(Text)`
+export const StyledNameText = styled(Text)`
   margin-left: 30px;
 
   width: 80px;
@@ -96,7 +97,7 @@ export const NameText = styled(Text)`
   color: #29465b;
 `;
 
-export const PriceText = styled(Text)`
+export const StyledPriceText = styled(Text)`
   margin-left: 245px;
   width: 78px;
   text-align: center;
@@ -105,7 +106,7 @@ export const PriceText = styled(Text)`
   color: #29465b;
 `;
 
-export const QuantityText = styled(Text)`
+export const StyledQuantityText = styled(Text)`
   margin-left: 55px;
   width: 90px;
   text-align: center;
@@ -114,7 +115,7 @@ export const QuantityText = styled(Text)`
   color: #29465b;
 `;
 
-export const TotalText = styled(Text)`
+export const StyledTotalText = styled(Text)`
   margin-left: 55px;
   width: 80px;
   text-align: center;
@@ -123,17 +124,17 @@ export const TotalText = styled(Text)`
   color: #29465b;
 `;
 
-export const Fullcartcontainer = styled(Content)`
+export const StyledFullcartcontainer = styled(Content)`
   margin-bottom: 200px;
 `;
 
-export const CartContainer = styled(Content)`
+export const StyledCartContainer = styled(Content)`
   margin-left: 250px;
   margin-right: 250px;
   margin-bottom: 10px;
 `;
 
-export const CardContainer = styled(Card)`
+export const StyledCardContainer = styled(Card)`
   display: flex;
   font-size: 15px;
   font-weight: 700;
@@ -148,7 +149,7 @@ export const CardContainer = styled(Card)`
 `;
 
 
-export const Cartimg = styled(Image)`
+export const StyledCartimg = styled(Image)`
   display: flex;
   margin-top: 0px;
   margin-left: 20px;
@@ -156,50 +157,67 @@ export const Cartimg = styled(Image)`
   text-align: center;
 `;
 
-export const TitleText = styled(Meta)`
+export const StyledTitleText = styled(Meta)`
   margin-right: 50px;
   width: 240px;
   text-align: left;
   color: #29465b;
 `;
 
-export const Pricedisplay = styled(Text)`
+export const StyledPricedisplay = styled(Text)`
   width: 80px;
   text-align: center;
   display: flex;
   color: #29465b;
 `;
 
-export const ArrowButton = styled(Button)`
+export const StyledArrowButton = styled(Button)`
   border: none;
   display: flex;
   color: #29465b;
 `;
 
-export const Quantitydisplay = styled(Text)`
+export const StyledQuantitydisplay = styled(Text)`
   display: block;
   width: 20px;
   color: #29465b;
 `;
 
-export const TotalQuantity = styled(Text)`
+export const StyledTotalQuantity = styled(Text)`
   display: block;
   width: 100px;
   color: #29465b;
 `;
 
-export const RemoveButton = styled(Button)`
+export const StyledRemoveButton = styled(Button)`
   display: flex;
   border: none;
   color: #29465b;
 `;
 
-export const TotalAmount = styled(Text)`
+export const StyledTotalAmount = styled(Text)`
   display: block;
-  float: right;
-  margin-right: 380px;
-  font-size: 24px;
+  float: left;
+  margin-left: 280px;
+  font-size: 20px;
   font-weight: 500;
   color: #29465b;
   margin-bottom: 250px;
 `;
+
+export const StyledClearCart = styled(Button)`
+   margin: 14px;
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 981px;
+  margin-right: 550px;
+  background: #29465b;
+  color: white;
+  &:hover {
+    color: white;
+    background: gray;
+  }
+`

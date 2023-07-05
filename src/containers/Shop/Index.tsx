@@ -5,10 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { getApiFetch } from "./shopSlice";
 import { addToCart } from "../Cart/cartslice";
 import {
-  Container,
-  Cardcontainer,
-  Subcontainer,
-  Cardimg,
+  StyledContainer,
+  StyledCardcontainer,
+  StyledSubcontainer,
+  StyledCardimg,
   Styledbutton,
 } from "./styles";
 
@@ -25,17 +25,15 @@ const ProductData = () => {
   }, [dispatch]);
 
   return (
-    
-    <Container>
+    <StyledContainer>
       <Row gutter={50}>
         {products.map((p: any) => {
           return (
-            
             <>
-              <Subcontainer>
-                <Cardcontainer
+              <StyledSubcontainer>
+                <StyledCardcontainer
                   hoverable
-                  cover={<Cardimg alt="image" src={p.image} preview={false} />}
+                  cover={<StyledCardimg alt="image" src={p.image} preview={false} />}
                 >
                   <Meta style={{ color: "#29465B" }} title={p.title} />
 
@@ -52,13 +50,13 @@ const ProductData = () => {
                   >
                     Add to cart
                   </Styledbutton>
-                </Cardcontainer>
-              </Subcontainer>
+                </StyledCardcontainer>
+              </StyledSubcontainer>
             </>
           );
         })}
       </Row>
-    </Container>
+    </StyledContainer>
   );
 };
 

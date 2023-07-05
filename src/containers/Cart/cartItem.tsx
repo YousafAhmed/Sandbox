@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   incrementQuantity,
   decrementQuantity,
@@ -8,15 +8,7 @@ import {
 } from "./cartslice";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Card,
-  Layout,
-  PageHeader,
-  Space,
-  Typography,
-  Button,
-  Image,
-} from "antd";
+import { Layout, Space, Button } from "antd";
 import {
   DeleteOutlined,
   LeftOutlined,
@@ -24,130 +16,142 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import {
-  CardContainer,
-  EmptyCartContainer,
-  Header,
-  HeadingContainer,
-  HeadingText,
-  ItemText,
-  NameText,
-  PriceText,
-  QuantityText,
-  TextContainer,
-  TotalText,
-  CartContainer,
-  TitleText,
-  Pricedisplay,
-  ArrowButton,
-  Quantitydisplay,
-  TotalQuantity,
-  RemoveButton,
-  TotalAmount,
-  Fullcartcontainer,
-  Cartimg,
-  Emptycartimg,
-  Emptytext,
-  Emptycartbutton,
+  StyledCardContainer,
+  StyledEmptyCartContainer,
+  StyledHeader,
+  StyledHeadingContainer,
+  StyledHeadingText,
+  StyledItemText,
+  StyledNameText,
+  StyledPriceText,
+  StyledQuantityText,
+  StyledTextContainer,
+  StyledTotalText,
+  StyledCartContainer,
+  StyledTitleText,
+  StyledPricedisplay,
+  StyledArrowButton,
+  StyledQuantitydisplay,
+  StyledTotalQuantity,
+  StyledRemoveButton,
+  StyledTotalAmount,
+  StyledFullcartcontainer,
+  StyledCartimg,
+  StyledEmptycartimg,
+  StyledEmptytext,
+  StyledEmptycartbutton,
+  StyledClearCart,
 } from "./styles";
 
 const { Content } = Layout;
-const { Text } = Typography;
 
 const CartItem = ({ id }: any) => {
   const products = useSelector((state: any) => state.cart.cart);
+  const { total } = useSelector((state: any) => state.cart.cart);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getTotals(total));
-  // }, [total]);
+  useEffect(() => {
+    dispatch(getTotals(total));
+  }, [total]);
 
   if (products < 1) {
     return (
-      <EmptyCartContainer>
-        <Header
+      <StyledEmptyCartContainer>
+        <StyledHeader
           className="site-page-header"
           onBack={() => history.back()}
           title="Go Back"
         />
-        <Emptycartimg preview={false} src="empty-cart.png"></Emptycartimg>
-        <Emptytext>Your Cart is empty!</Emptytext>
-        <Emptycartbutton size="large" href="/Shop">Go to Shop</Emptycartbutton>
-      </EmptyCartContainer>
+        <StyledEmptycartimg
+          preview={false}
+          src="empty-cart.png"
+        ></StyledEmptycartimg>
+        <StyledEmptytext>Your Cart is empty!</StyledEmptytext>
+        <StyledEmptycartbutton size="large" href="/Shop">
+          Go to Shop
+        </StyledEmptycartbutton>
+      </StyledEmptyCartContainer>
     );
   }
 
   return (
-    <Fullcartcontainer>
-      <Header
+    <StyledFullcartcontainer>
+      <StyledHeader
         className="site-page-header"
         onBack={() => history.back()}
         title="Go Back"
       />
-      <HeadingContainer>
-        <HeadingText>
+      <StyledHeadingContainer>
+        <StyledHeadingText>
           YOUR CART
           <ShoppingCartOutlined style={{ color: "#29465B" }} />
-        </HeadingText>
-      </HeadingContainer>
+        </StyledHeadingText>
+      </StyledHeadingContainer>
 
-      <TextContainer>
-        <ItemText>ITEM</ItemText>
-        <NameText>NAME</NameText>
-        <PriceText>PRICE</PriceText>
-        <QuantityText>QUANTITY</QuantityText>
-        <TotalText>TOTAL</TotalText>
-      </TextContainer>
+      <StyledTextContainer>
+        <StyledItemText>ITEM</StyledItemText>
+        <StyledNameText>NAME</StyledNameText>
+        <StyledPriceText>PRICE</StyledPriceText>
+        <StyledQuantityText>QUANTITY</StyledQuantityText>
+        <StyledTotalText>TOTAL</StyledTotalText>
+      </StyledTextContainer>
 
       {products.map((p: any) => {
         return (
           <>
-            <CartContainer>
-              <CardContainer
+            <StyledCartContainer>
+              <StyledCardContainer
                 hoverable
-                cover={<Cartimg preview={false} alt="image" src={p.image} />}
+                cover={
+                  <StyledCartimg preview={false} alt="image" src={p.image} />
+                }
               >
                 <Space style={{ display: "flex", margin: "20px" }}>
-                  <TitleText title={p.title} />
-                  <Pricedisplay>${p.price.toFixed(2)}</Pricedisplay>
+                  <StyledTitleText title={p.title} />
+                  <StyledPricedisplay>${p.price.toFixed(2)}</StyledPricedisplay>
 
-                  <ArrowButton onClick={() => dispatch(decrementQuantity(p))}>
+                  <StyledArrowButton
+                    onClick={() => dispatch(decrementQuantity(p))}
+                  >
                     <LeftOutlined
                       style={{ marginTop: "4px", color: "#29465B" }}
                     />
-                  </ArrowButton>
-                  <Quantitydisplay>{p.quantity}</Quantitydisplay>
+                  </StyledArrowButton>
+                  <StyledQuantitydisplay>{p.quantity}</StyledQuantitydisplay>
 
-                  <ArrowButton onClick={() => dispatch(incrementQuantity(p))}>
+                  <StyledArrowButton
+                    onClick={() => dispatch(incrementQuantity(p))}
+                  >
                     <RightOutlined
                       style={{ marginTop: "4px", color: "#29465B" }}
                     />
-                  </ArrowButton>
+                  </StyledArrowButton>
 
                   <>
-                    <TotalQuantity>
+                    <StyledTotalQuantity>
                       ${(p.price * p.quantity).toFixed(2)}
-                    </TotalQuantity>
+                    </StyledTotalQuantity>
                   </>
                   <Space style={{ display: "flex", marginLeft: "30px" }}>
-                    <RemoveButton
-                      style={{}}
+                    <StyledRemoveButton
                       onClick={() => dispatch(removeFromCart(p))}
                     >
                       <DeleteOutlined
                         style={{ marginTop: "4px", fontSize: "15px" }}
                       />
-                    </RemoveButton>
+                    </StyledRemoveButton>
                   </Space>
                 </Space>
-              </CardContainer>
-            </CartContainer>
+              </StyledCardContainer>
+            </StyledCartContainer>
           </>
         );
       })}
       <Content>
-        <TotalAmount underline>SUB-TOTAL:</TotalAmount>
+        <StyledTotalAmount underline>SUB-TOTAL: {total}</StyledTotalAmount>
+        <StyledClearCart size="large"  onClick={() => dispatch(clearCart(products))}>Clear Cart</StyledClearCart>
       </Content>
-    </Fullcartcontainer>
+    </StyledFullcartcontainer>
   );
 };
 

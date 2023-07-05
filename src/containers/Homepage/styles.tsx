@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { Layout, Image, Typography, Carousel, Button } from "antd";
+import { Layout, Image, Typography, Carousel, Button, Card } from "antd";
 
 const { Content } = Layout;
 const { Text } = Typography;
 
-export const Container = styled(Content)`
+export const StyledContainer = styled(Content)`
   margin-top: 15px;
   height: 50%;
   margin-bottom: 100px;
 `;
 
-export const SubContainer = styled(Content)`
+export const StyledSubContainer = styled(Content)`
   background: linear-gradient(to right, #bdc3c7, #2c3e50);
   display: flex;
   margin-top: 20px;
@@ -21,7 +21,7 @@ export const SubContainer = styled(Content)`
   }
 `;
 
-export const Image1 = styled(Image)`
+export const StyledImage1 = styled(Image)`
   border-color: black;
   display: flex;
   width: 23%;
@@ -34,7 +34,7 @@ export const Image1 = styled(Image)`
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
 `;
 
-export const Image2 = styled(Image)`
+export const StyledImage2 = styled(Image)`
   border-color: black;
   display: flex;
   width: 15%;
@@ -47,7 +47,7 @@ export const Image2 = styled(Image)`
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
 `;
 
-export const Image3 = styled(Image)`
+export const StyledImage3 = styled(Image)`
   border-color: black;
   display: flex;
   width: 25%;
@@ -58,7 +58,7 @@ export const Image3 = styled(Image)`
   border-radius: 25%;
 `;
 
-export const Image4 = styled(Image)`
+export const StyledImage4 = styled(Image)`
   border-color: black;
   display: flex;
   width: 18%;
@@ -71,7 +71,7 @@ export const Image4 = styled(Image)`
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.4)));
 `;
 
-export const Heading = styled(Text)`
+export const StyledHeading = styled(Text)`
   display: flex;
   margin: 10px;
   width: 800px;
@@ -80,10 +80,9 @@ export const Heading = styled(Text)`
   /* -webkit-text-stroke: 1.5px #29465b; */ // text border color
   text-align: left;
   color: #bfc8d6;
-  font-family: 'Aclonica', sans-serif;
-
+  font-family: "Aclonica", sans-serif;
 `;
-export const Para = styled(Text)`
+export const StyledPara = styled(Text)`
   display: flex;
   margin-top: 40px;
   width: 800px;
@@ -94,7 +93,7 @@ export const Para = styled(Text)`
   font-family: "Russo One", sans-serif;
 `;
 
-export const Buttonstyle = styled(Button)`
+export const StyledButtonstyle = styled(Button)`
   margin: 10px;
   font-size: 16px;
   display: flex;
@@ -116,16 +115,53 @@ export const Buttonstyle = styled(Button)`
 //   margin-top: 50px;
 // `
 
-export const Heading2 = styled(Button)`
+export const StyledHeading2 = styled(Button)`
   height: 80px;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'Aclonica', sans-serif;
+  font-family: "Aclonica", sans-serif;
   color: #29465b;
   margin-top: 30px;
   :hover {
     background: #eeeeee;
     color: #212a3e;
   }
+`;
+
+export const StyledCardcontainer = styled(Card)`
+  width: 260px;
+  height: 300px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  /* border-radius: 5%;
+  border-width: 3px; */
+  border-color: #29465b;
+  &:hover {
+    border-color: #84a7a1;
+  }
+`;
+
+export const StyledCardimg = styled(Image)`
+  width: 140px;
+  height: 170px;
+  /* margin-Left: 50px; */
+  margin-top: 15px;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
+`;
+
+export const StyledPreviewContainer = styled(Content)`
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+`;
+
+export const StyledPreviewSubcontainer = styled(Content)`
+  width: 230px;
+  height: 280px;
+  margin-left: 5px;
+  margin-top: 5px;
+  /* margin-bottom: 20px; */
 `;

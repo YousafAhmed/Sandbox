@@ -4,36 +4,36 @@ import styled from "styled-components";
 
 const { Content } = Layout;
 
-export const Container = styled(Content)`
+export const StyledContainer = styled(Content)`
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
 `;
 
-export const Subcontainer = styled(Content)`
+export const StyledSubcontainer = styled(Content)`
   width: 280px;
   margin-left: 5px;
   margin-top: 10px;
   /* margin-bottom: 20px; */
 `;
 
-export const Cardcontainer = styled(Card)`
+export const StyledCardcontainer = styled(Card)`
   width: 320px;
   height: 400px;
   text-align: center;
 
   font-size: 15px;
   font-weight: 700;
-  border-radius: 5%;
-  border-width: 3px;
+  /* border-radius: 5%;
+  border-width: 3px; */
   border-color: #29465b;
   &:hover {
     border-color: #84a7a1;
   }
 `;
 
-export const Cardimg = styled(Image)`
+export const StyledCardimg = styled(Image)`
   width: 220px;
   height: 240px;
   /* margin-Left: 50px; */

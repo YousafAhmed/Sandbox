@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, Layout, Menu, Space } from "antd";
-import {
-  HomeOutlined,
-  TableOutlined,
-  UserOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
+import { Dropdown, Layout, Menu, Space, Image } from "antd";
+import { UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { StyledLink } from "./styles";
 
 const { Header } = Layout;
+const {Item} = Menu;
 
 export const Navigate = (title: any, total: any) => {
   return (
@@ -18,54 +15,79 @@ export const Navigate = (title: any, total: any) => {
         position: "fixed",
         zIndex: "10",
         background: "linear-gradient(to right, #141e30, #243b55)",
-        
       }}
     >
-      {/* <div className="logo"> */}
+      
       <Menu
         style={{
           display: "block",
           background: "linear-gradient(to right, #141e30, #243b55)",
+          borderBottom:"0px"
         }}
-        theme="dark"
+        theme="light"
         mode="horizontal"
         defaultSelectedKeys={["2"]}
       >
-        <Menu.Item key="item1" title="home" style={{ fontSize: "18px" }}>
-          <Link to="/Home">
-            <HomeOutlined style={{ fontSize: "18px" }} /> Home
-          </Link>
+        <Menu.Item
+          key="logoItem"
+          title="Logo"
+          style={{ float: "left", width: "240px" }}
+        >
+          <StyledLink to="/Home">
+            <Image
+              src="logo.PNG"
+              style={{
+                fontSize: "20px",
+                width: "200px",
+                height: "55px",
+                marginLeft: "0",
+              }}
+              preview={false}
+            />
+          </StyledLink>
         </Menu.Item>
 
         <Menu.Item key="item2" style={{ float: "right" }} title="Cart">
-          <Link to="/CartItem">
+          <StyledLink to="/CartItem">
             <ShoppingCartOutlined style={{ fontSize: "20px" }} />
-          </Link>
+          </StyledLink>
         </Menu.Item>
 
         <Menu.Item key="item4" title="Sign-In" style={{ float: "right" }}>
-          <Link to="/Form">
+          <StyledLink to="/Form">
             <UserOutlined style={{ fontSize: "20px" }} />
-          </Link>
+          </StyledLink>
         </Menu.Item>
-        <Menu.Item key="item3" title="table" style={{ fontSize: "18px" }}>
-          <Link to="/Table">
-            <TableOutlined style={{ fontSize: "18px" }} /> Table
-          </Link>
+
+        <Menu.Item
+          key="item3"
+          title="table"
+          style={{ fontSize: "18px", float: "right" }}
+        >
+          <StyledLink to="/Table">
+            Table
+          </StyledLink>
         </Menu.Item>
-        <Menu.Item key="item3.1" title="Shop" style={{ fontSize: "18px" }}>
-          <Link to="/Shop">Shop</Link>
-          {/* <Menu.Item key="item3.1a" title="Option-1">
-              
-            </Menu.Item> */}
-          {/* <Menu.SubMenu key="item3.1b" title="Option-2">
-              <Menu.Item key="item3.1b1" title="hey">
-                Hey
-              </Menu.Item>
-            </Menu.SubMenu> */}
+
+        <Menu.Item
+          key="item3.1"
+          title="Shop"
+          style={{ fontSize: "18px", float: "right" }}
+        >
+          <StyledLink to="/Shop">
+            Shop
+          </StyledLink>
+        </Menu.Item>
+
+        <Menu.Item
+          key="item1"
+          title="home"
+          style={{ fontSize: "18px", float: "right", color: "red" }}
+        >
+          <StyledLink to="/Home">Home</StyledLink>
         </Menu.Item>
       </Menu>
-      {/* </div> */}
+      
     </Header>
   );
 };

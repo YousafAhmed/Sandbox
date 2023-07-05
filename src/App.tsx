@@ -11,6 +11,7 @@ import Navigate from "./components/Navigation/Index";
 import { Layout } from "antd";
 import { Footer } from "antd/lib/layout/layout";
 
+
 const {Content}= Layout
 function App() {
   return (
