@@ -11,21 +11,19 @@ export const StyledEmptyCartContainer = styled(Content)`
 `;
 export const StyledEmptycartimg = styled(Image)`
   display: flex;
-  width:40%;
+  width: 40%;
   text-align: center;
   margin-bottom: 20px;
   margin-left: 130px;
-  
-`
+`;
 export const StyledEmptytext = styled(Text)`
   display: flex;
   font-size: 30px;
-  color: #29465B;
-  text-align:center;
+  color: #29465b;
+  text-align: center;
   align-items: center;
   justify-content: center;
-
-`
+`;
 export const StyledEmptycartbutton = styled(Button)`
   margin: 14px;
   font-size: 20px;
@@ -37,15 +35,20 @@ export const StyledEmptycartbutton = styled(Button)`
   margin-right: 550px;
   background: #29465b;
   color: white;
+  &.ant-btn-primary {
+    background:#29465b;
+    border-color: #29465b;
+  }
   &:hover {
     color: white;
     background: gray;
   }
+  
 `;
 
 export const StyledHeader = styled(PageHeader)`
   margin-bottom: 30px;
-  margin-top:20px;
+  margin-top: 20px;
   font-size: 26px;
   color: #29465b;
 `;
@@ -70,16 +73,16 @@ export const StyledHeadingText = styled(Text)`
 export const StyledTextContainer = styled(Card)`
   display: flex;
   text-align: left;
-  margin-left: 250px;
-  margin-right: 250px;
-  margin-top: 30px;
+  margin-left: 280px;
+  margin-right: 200px;
+  margin-top: 10px;
   height: 50px;
   border: none;
 `;
 
 export const StyledItemText = styled(Text)`
-  margin-left: 0px;
-  margin-right: 10px;
+  margin-left: 15px;
+  /* margin-right: 10px; */
   width: 50px;
   text-align: left;
   font-weight: 500;
@@ -88,7 +91,7 @@ export const StyledItemText = styled(Text)`
 `;
 
 export const StyledNameText = styled(Text)`
-  margin-left: 30px;
+  margin-left: 105px;
 
   width: 80px;
   text-align: center;
@@ -98,7 +101,7 @@ export const StyledNameText = styled(Text)`
 `;
 
 export const StyledPriceText = styled(Text)`
-  margin-left: 245px;
+  margin-left: 133px;
   width: 78px;
   text-align: center;
   font-weight: 500;
@@ -129,8 +132,8 @@ export const StyledFullcartcontainer = styled(Content)`
 `;
 
 export const StyledCartContainer = styled(Content)`
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 280px;
+  margin-right: 270px;
   margin-bottom: 10px;
 `;
 
@@ -141,25 +144,25 @@ export const StyledCardContainer = styled(Card)`
   border-radius: 0%;
   border-width: 1px;
   border-color: #29465b;
-  height: 100px;
+  height: 120px;
   align-items: center;
   &:hover {
     border-color: #9ac5f4;
   }
 `;
 
-
 export const StyledCartimg = styled(Image)`
   display: flex;
+  border-radius: 80%;
   margin-top: 0px;
   margin-left: 20px;
-  width: 80%;
+  width: 80px;
   text-align: center;
 `;
 
 export const StyledTitleText = styled(Meta)`
   margin-right: 50px;
-  width: 240px;
+  width: 170px;
   text-align: left;
   color: #29465b;
 `;
@@ -196,9 +199,10 @@ export const StyledRemoveButton = styled(Button)`
 `;
 
 export const StyledTotalAmount = styled(Text)`
-  display: block;
+  /* display: flex; */
   float: left;
-  margin-left: 280px;
+  margin-left: 650px;
+  margin-top: 100px;
   font-size: 20px;
   font-weight: 500;
   color: #29465b;
@@ -206,18 +210,52 @@ export const StyledTotalAmount = styled(Text)`
 `;
 
 export const StyledClearCart = styled(Button)`
-   margin: 14px;
-  font-size: 20px;
+  /* margin: 14px; */
+  /* border-radius: 5%; */
+  font-size: 18px;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-left: 981px;
-  margin-right: 550px;
+  margin-left: 263px;
+  margin-right: 165px;
+  /* margin-top: 5px; */
+  /* background: #29465b; */
+  /* color: whitesmoke; */
+  /* width: 180px; */
+  height: max-content;
+  &.ant-btn-primary {
+    background: #29465b;
+    border-color: #29465b;
+  }
+  &:hover {
+    color: grey;
+
+    background: white;
+  }
+`;
+export const StyledContinueShopping = styled(Button)`
+  /* margin: 14px; */
+  /* border-radius: 5%; */
+  font-size: 18px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 362px;
+  margin-right: 165px;
+  /* margin-top: 5px; */
   background: #29465b;
-  color: white;
+  color: whitesmoke;
+  width: 180px;
+  &.ant-btn-primary {
+    background: #29465b;
+    border-color: #29465b;
+  }
+
+  height: 40px;
   &:hover {
     color: white;
     background: gray;
   }
-`
+`;

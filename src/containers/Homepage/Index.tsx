@@ -1,8 +1,19 @@
-import { Carousel, Typography, Card, Space, Row } from "antd";
+import {
+  Carousel,
+  Typography,
+  Card,
+  Space,
+  Row,
+  Modal,
+  Image,
+  Divider,
+  Layout,
+} from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getApiFetch } from "./previewSlice";
+import { addToCart } from "../Cart/cartslice";
 
 import {
   StyledButtonstyle,
@@ -19,6 +30,11 @@ import {
   StyledCardimg,
   StyledPreviewContainer,
   StyledPreviewSubcontainer,
+  StyledButton,
+  StyledCartButton,
+  StyledHeading3,
+  StyledProductofDay,
+  StyledAddToCart,
 } from "./styles";
 
 const contentStyle: React.CSSProperties = {
@@ -29,11 +45,13 @@ const contentStyle: React.CSSProperties = {
   background: "linear-gradient(to right, #bdc3c7, #2c3e50)",
 };
 
+const { Content } = Layout;
 const { Text } = Typography;
 const { Meta } = Card;
 
 const Page = () => {
   const previews = useSelector((state: any) => state.preview.preview);
+  const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,7 +65,7 @@ const Page = () => {
         pauseOnHover={false}
         autoplay
         draggable
-        style={{ background: " linear-gradient(to right, #bdc3c7, #2c3e50)" }}
+        style={{ background: "linear-gradient(to right, #bdc3c7, #2c3e50)" }}
       >
         <StyledSubContainer>
           <StyledImage1 src="men-shirt.png" preview={false} />
@@ -59,7 +77,7 @@ const Page = () => {
             doloremque quidem?consectetur adipisicing elit. Delectus vitae
             quidem accusantium dolor eos?
           </StyledPara>
-          <StyledButtonstyle size="large" href="/Shop">
+          <StyledButtonstyle type="text" size="large" href="/Shop">
             Shop now!
           </StyledButtonstyle>
         </StyledSubContainer>
@@ -73,7 +91,7 @@ const Page = () => {
             doloremque quidem?consectetur adipisicing elit. Delectus vitae
             quidem accusantium dolor eos?
           </StyledPara>
-          <StyledButtonstyle size="large" href="/Shop">
+          <StyledButtonstyle type="text" size="large" href="/Shop">
             Shop now!
           </StyledButtonstyle>
         </StyledSubContainer>
@@ -87,13 +105,13 @@ const Page = () => {
             doloremque quidem?consectetur adipisicing elit. Delectus vitae
             quidem accusantium dolor eos?
           </StyledPara>
-          <StyledButtonstyle size="large" href="/Shop">
+          <StyledButtonstyle type="text" size="large" href="/Shop">
             Shop now!
           </StyledButtonstyle>
         </StyledSubContainer>
         <StyledSubContainer>
           <StyledImage4 src="electronic.png" preview={false} />
-          <StyledHeading>All new tech just a click away.</StyledHeading>
+          <StyledHeading>All the new tech just a click away.</StyledHeading>
           <StyledPara>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
             vitae quidem accusantium dolor eos, pariatur dolorem nihil nesciunt
@@ -101,49 +119,167 @@ const Page = () => {
             doloremque quidem?consectetur adipisicing elit. Delectus vitae
             quidem accusantium dolor eos?
           </StyledPara>
-          <StyledButtonstyle size="large" href="/Shop">
+          <StyledButtonstyle type="text" size="large" href="/Shop">
             Shop now!
           </StyledButtonstyle>
         </StyledSubContainer>
       </Carousel>
 
-      <StyledHeading2 type="text">
-        Latest in &nbsp;
-        <b style={{ fontSize: "42px", fontFamily: "Luckiest Guy, cursive" }}>
-          <u>Men's</u>
-        </b>
-        &nbsp; Fashion
-      </StyledHeading2>
+      <StyledHeading2>Latest in Men's Fashion</StyledHeading2>
 
-<StyledPreviewContainer>
-      <Row gutter={80}>
-      {previews.map((p: any) => {
-        return (
-          <>
-          <StyledPreviewSubcontainer>
-            <StyledCardcontainer
-              hoverable
-              cover={
-                <StyledCardimg alt="image" src={p.image} preview={false} />
-              }
-            >
-              <Meta style={{ color: "#29465B", marginTop:"20px" }} title={p.title} />
+      <StyledPreviewContainer>
+        <Row gutter={80}>
+          {previews.map((p: any) => {
+            if (p.category === "men's clothing")
+              return (
+                <>
+                  <StyledPreviewSubcontainer>
+                    <StyledCardcontainer
+                      hoverable
+                      cover={
+                        <StyledCardimg
+                          alt="image"
+                          src={p.image}
+                          preview={false}
+                        />
+                      }
+                    >
+                      <Meta
+                        style={{ color: "#29465B", marginTop: "0px" }}
+                        title={p.title}
+                      />
 
-              <Space style={{ marginTop: "8px" }}>
-                <Text style={{ color: "#29465B" }} italic>
-                  ${p.price.toFixed(2)}
-                </Text>
-              </Space>
-            </StyledCardcontainer>
-            </StyledPreviewSubcontainer>
-          </>
-        );
-      })}
-      </Row>
+                      <Space style={{ marginTop: "8px" }}>
+                        <Text style={{ color: "#29465B" }} italic>
+                          ${p.price.toFixed(2)}
+                        </Text>
+                      </Space>
+                      <StyledButton
+                        size="large"
+                        type="primary"
+                        onClick={() => setModalOpen(true)}
+                      >
+                        Shop now!
+                      </StyledButton>
+                      <Modal
+                        centered
+                        open={modalOpen}
+                        onOk={() => setModalOpen(false)}
+                        onCancel={() => setModalOpen(false)}
+                        footer={null}
+                      >
+                        <StyledCardimg
+                          // src={p.image}
+                          preview={false}
+                          alt="Image"
+                        />
+                        {/* <Text style={{marginTop:"5px"}}>{p.title}</Text> */}
+                        <StyledCartButton
+                          size="large"
+                          type="primary"
+                          onClick={() => dispatch(addToCart(p))}
+                        >
+                          Add to cart
+                        </StyledCartButton>
+                      </Modal>
+                    </StyledCardcontainer>
+                  </StyledPreviewSubcontainer>
+                </>
+              );
+          })}
+        </Row>
       </StyledPreviewContainer>
-      
+      <StyledHeading3>
+        <u>Product of the Day</u>
+      </StyledHeading3>
+      <StyledProductofDay>
+        {previews.map((p: any) => {
+          if (p.id === 14)
+            return (
+              <>
+                <Image
+                  style={{
+                    marginTop: "20px",
+                    marginLeft: "80px",
+                    height: "95%",
+                    width: "85%",
+                  }}
+                  preview={false}
+                  src={p.image}
+                />
+                <Content style={{background: "#cdd1ce", marginLeft:"40px" }}>
+                <Text
+                    style={{
+                      display: "block",
+                      // marginLeft: "10px",
+                      marginBottom:"30px",
+                      fontWeight: "bold",
+                      fontSize: "20px",
+                      width: "100px",
+                      textAlign: "center",
+                      color: "whitesmoke",
+                      background:"#29465b"
+                    }}
+                  >
+                    Save 25%
+                  </Text>
+                  <Text
+                    style={{
+                      display: "block",
+                      marginLeft: "10px",
+                      fontWeight: "bold",
+                      fontSize: "26px",
+                      width: "700px",
+                      textAlign: "left",
+                      color: "#29465b",
+                    }}
+                  >
+                    {p.title}
+                  </Text>
+                  <Divider></Divider>
+                  
+                  <Text
+                    style={{
+                      display: "block",
+                      marginLeft: "10px",
+                      fontWeight: "bold",
+                      fontSize: "20px",
+                      width: "400px",
+                      textAlign: "left",
+                      color: "#29465b",
+                    }}
+                  >
+                    Price: $749.00 <s style={{ color: "grey" }}>${p.price}</s>
+                  </Text>
+
+                  <Text
+                    style={{
+                      display: "block",
+                      marginLeft: "10px",
+                      marginTop: "5px",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      width: "400px",
+                      textAlign: "left",
+                      color: "#29465b",
+                    }}
+                  >
+                    Warranty: 1-Year Warranty
+                  </Text>
+
+                  <StyledAddToCart
+                    onClick={() => dispatch(addToCart(p))}
+                    type="primary"
+                    size="large"
+                  >
+                    Add to Cart
+                  </StyledAddToCart>
+                </Content>
+              </>
+            );
+        })}
+      </StyledProductofDay>
     </StyledContainer>
-    
   );
 };
 export default Page;

@@ -1,19 +1,27 @@
 import styled from "styled-components";
-import { Layout, Image, Typography, Carousel, Button, Card } from "antd";
+import {
+  Layout,
+  Image,
+  Typography,
+  Carousel,
+  Button,
+  Card,
+  Divider,
+} from "antd";
 
 const { Content } = Layout;
 const { Text } = Typography;
 
 export const StyledContainer = styled(Content)`
-  margin-top: 15px;
-  height: 50%;
+  /* margin-top: 15px; */
+  height: 55%;
   margin-bottom: 100px;
 `;
 
 export const StyledSubContainer = styled(Content)`
   background: linear-gradient(to right, #bdc3c7, #2c3e50);
   display: flex;
-  margin-top: 20px;
+  margin-top: 15px;
   height: 360px;
   .ant-image {
     position: relative;
@@ -29,7 +37,7 @@ export const StyledImage1 = styled(Image)`
   float: left;
   margin-left: 30px;
   margin-right: 50px;
-  margin-top: 0px;
+  margin-top: 20px;
   border-radius: 35%;
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
 `;
@@ -42,7 +50,7 @@ export const StyledImage2 = styled(Image)`
   float: left;
   margin-left: 80px;
   margin-right: 50px;
-  margin-top: 2px;
+  margin-top: 20px;
   border-radius: 25%;
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
 `;
@@ -74,6 +82,7 @@ export const StyledImage4 = styled(Image)`
 export const StyledHeading = styled(Text)`
   display: flex;
   margin: 10px;
+  margin-top: 30px;
   width: 800px;
   font-size: 40px;
   font-weight: bold;
@@ -115,25 +124,26 @@ export const StyledButtonstyle = styled(Button)`
 //   margin-top: 50px;
 // `
 
-export const StyledHeading2 = styled(Button)`
-  height: 80px;
+export const StyledHeading2 = styled(Typography)`
+  height: 60px;
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
-  font-family: "Aclonica", sans-serif;
+  font-family: "Play", sans-serif;
   color: #29465b;
   margin-top: 30px;
-  :hover {
+  /* :hover {
     background: #eeeeee;
     color: #212a3e;
-  }
+  } */
 `;
 
 export const StyledCardcontainer = styled(Card)`
-  width: 260px;
-  height: 300px;
+  width: 300px;
+  height: 350px;
+  margin-left: 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   /* border-radius: 5%;
   border-width: 3px; */
@@ -144,7 +154,7 @@ export const StyledCardcontainer = styled(Card)`
 `;
 
 export const StyledCardimg = styled(Image)`
-  width: 140px;
+  width: 160px;
   height: 170px;
   /* margin-Left: 50px; */
   margin-top: 15px;
@@ -154,7 +164,7 @@ export const StyledCardimg = styled(Image)`
 export const StyledPreviewContainer = styled(Content)`
   margin-left: 40px;
   margin-right: 40px;
-  margin-top: 10px;
+  /* margin-top: 5px; */
   margin-bottom: 20px;
 `;
 
@@ -162,6 +172,91 @@ export const StyledPreviewSubcontainer = styled(Content)`
   width: 230px;
   height: 280px;
   margin-left: 5px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   /* margin-bottom: 20px; */
+`;
+
+export const StyledButton = styled(Button)`
+  margin: 10px;
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  margin-left: 70px;
+  border-radius: 5%;
+  background: #29465b;
+  border-color: #29465b;
+  color: white;
+  &.ant-btn-primary {
+    background: #29465b;
+    border-color: #29465b;
+  }
+  &:hover {
+    color: white;
+    background: gray;
+  }
+`;
+
+export const StyledCartButton = styled(Button)`
+  margin: 10px;
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  margin-left: 370px;
+  border-radius: 5%;
+  background: #29465b;
+  color: white;
+  &.ant-btn-primary {
+    background: #29465b;
+    border-color: #29465b;
+  }
+  &:hover {
+    color: white;
+    background: gray;
+  }
+`;
+
+export const StyledHeading3 = styled(Typography)`
+  height: 50px;
+  margin-left: 80px;
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Play", sans-serif;
+  color: #29465b;
+  margin-top: 90px;
+  /* :hover {
+    background: #eeeeee;
+    color: #212a3e;
+  } */
+`;
+
+export const StyledProductofDay = styled(Content)`
+  /* margin-left: 40px; */
+  margin-right: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  
+`;
+
+export const StyledAddToCart = styled(Button)`
+  width:250px;
+  font-size: 20px;
+  margin-left: 80px;
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: right;
+  justify-content: right;
+  margin-top: 120px;
+  
+  background: #29465b;
+  color: white;
+  &.ant-btn-primary {
+    background:#29465b;
+    border-color: #29465b;
+  }
+  &:hover {
+    color: white;
+    background: gray;
+  }
+  
 `;

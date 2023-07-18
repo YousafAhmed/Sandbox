@@ -8,7 +8,7 @@ import {
 } from "./cartslice";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Layout, Space, Button } from "antd";
+import { Layout, Space, Button, Typography } from "antd";
 import {
   DeleteOutlined,
   LeftOutlined,
@@ -41,9 +41,11 @@ import {
   StyledEmptytext,
   StyledEmptycartbutton,
   StyledClearCart,
+  StyledContinueShopping
 } from "./styles";
 
 const { Content } = Layout;
+const { Text } = Typography;
 
 const CartItem = ({ id }: any) => {
   const products = useSelector((state: any) => state.cart.cart);
@@ -52,7 +54,7 @@ const CartItem = ({ id }: any) => {
 
   useEffect(() => {
     dispatch(getTotals(total));
-  }, [total]);
+  }, [total, dispatch]);
 
   if (products < 1) {
     return (
@@ -67,7 +69,7 @@ const CartItem = ({ id }: any) => {
           src="empty-cart.png"
         ></StyledEmptycartimg>
         <StyledEmptytext>Your Cart is empty!</StyledEmptytext>
-        <StyledEmptycartbutton size="large" href="/Shop">
+        <StyledEmptycartbutton  type="primary" size="large" href="/Shop">
           Go to Shop
         </StyledEmptycartbutton>
       </StyledEmptyCartContainer>
@@ -147,9 +149,22 @@ const CartItem = ({ id }: any) => {
           </>
         );
       })}
-      <Content>
-        <StyledTotalAmount underline>SUB-TOTAL: {total}</StyledTotalAmount>
-        <StyledClearCart size="large"  onClick={() => dispatch(clearCart(products))}>Clear Cart</StyledClearCart>
+      <Content style={{display:"flex"}}>
+        <StyledClearCart
+        danger type="text"
+        
+          // size="large"
+          onClick={() => dispatch(clearCart(products))}
+        >
+          Clear Cart
+        </StyledClearCart>
+        <StyledContinueShopping
+        type="primary"
+          size="large"
+          href="/Shop"
+        >
+          Continue shopping
+        </StyledContinueShopping>
       </Content>
     </StyledFullcartcontainer>
   );

@@ -49,17 +49,17 @@ export const Navigate = (title: any, total: any) => {
 
         <Menu.Item key="item2" style={{ float: "right" }} title="Cart">
           <StyledLink to="/CartItem">
-            <ShoppingCartOutlined style={{ fontSize: "20px" }} />
+            <ShoppingCartOutlined style={{ fontSize: "18px" }} />
           </StyledLink>
         </Menu.Item>
 
         <Menu.Item key="item4" title="Sign-In" style={{ float: "right" }}>
           <StyledLink to="/Form">
-            <UserOutlined style={{ fontSize: "20px" }} />
+            <u>Sign in</u>
           </StyledLink>
         </Menu.Item>
 
-        <Menu.Item
+        {/* <Menu.Item
           key="item3"
           title="table"
           style={{ fontSize: "18px", float: "right" }}
@@ -67,24 +67,34 @@ export const Navigate = (title: any, total: any) => {
           <StyledLink to="/Table">
             Table
           </StyledLink>
+        </Menu.Item> */}
+
+      <Menu.Item
+          key="item3"
+          title="table"
+          style={{ fontSize: "16px", float: "right" }}
+        >
+          <StyledLink to="/Contact">
+            <u>Contact us</u>
+          </StyledLink>
         </Menu.Item>
 
         <Menu.Item
           key="item3.1"
           title="Shop"
-          style={{ fontSize: "18px", float: "right" }}
+          style={{ fontSize: "16px", float: "right" }}
         >
           <StyledLink to="/Shop">
-            Shop
+            <u>Shop</u>
           </StyledLink>
         </Menu.Item>
 
         <Menu.Item
           key="item1"
           title="home"
-          style={{ fontSize: "18px", float: "right", color: "red" }}
+          style={{ fontSize: "16px", float: "right", color: "red" }}
         >
-          <StyledLink to="/Home">Home</StyledLink>
+          <StyledLink to="/Home"><u>Home</u></StyledLink>
         </Menu.Item>
       </Menu>
       
