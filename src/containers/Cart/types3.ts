@@ -3,6 +3,7 @@ export interface Cart {
     email: string;
     quantity: number;
     id: number;
+    localStorage:Storage;
   }
   
   export interface UserState {
@@ -10,4 +11,6 @@ export interface Cart {
     cart: Cart[];
     cartTotalQuantity: number;
     cartTotalAmount: number;
+    
+    
   }

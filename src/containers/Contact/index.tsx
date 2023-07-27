@@ -138,7 +138,18 @@ const ContactUs = () => {
               <TextArea rows={4} />
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button style={{marginRight:"0px"}} type="primary" htmlType="submit">Submit </Button>
+              <Button
+                style={{
+                  marginRight: "0px",
+
+                  background: "#29465b",
+                  borderColor: "whitesmoke",
+                }}
+                type="primary"
+                htmlType="submit"
+              >
+                Submit{" "}
+              </Button>
             </Form.Item>
           </Form>
         </StyledFormContainer>

@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Dropdown, Layout, Menu, Space, Image } from "antd";
 import { UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { StyledLink } from "./styles";
+import { StyledLink, StyledMenu } from "./styles";
 
 const { Header } = Layout;
-const {Item} = Menu;
 
 export const Navigate = (title: any, total: any) => {
+  const [cartCounter, setCartCounter] = useState(0);
+  const products = useSelector((state: any) => state.cart.cart);
+  useEffect(() => {
+    setCartCounter(products.length);
+  }, [products]);
   return (
     <Header
       style={{
@@ -17,16 +22,15 @@ export const Navigate = (title: any, total: any) => {
         background: "linear-gradient(to right, #141e30, #243b55)",
       }}
     >
-      
-      <Menu
+      <StyledMenu
         style={{
           display: "block",
           background: "linear-gradient(to right, #141e30, #243b55)",
-          borderBottom:"0px"
+          borderBottom: "0px",
         }}
         theme="light"
         mode="horizontal"
-        defaultSelectedKeys={["2"]}
+        defaultSelectedKeys={["item1"]}
       >
         <Menu.Item
           key="logoItem"
@@ -49,14 +53,17 @@ export const Navigate = (title: any, total: any) => {
 
         <Menu.Item key="item2" style={{ float: "right" }} title="Cart">
           <StyledLink to="/CartItem">
-            <ShoppingCartOutlined style={{ fontSize: "18px" }} />
+            <ShoppingCartOutlined style={{ fontSize: "24px" }} /> {cartCounter}
+            {/* {console.log(cartTotalQuantity)} */}
           </StyledLink>
         </Menu.Item>
 
-        <Menu.Item key="item4" title="Sign-In" style={{ float: "right" }}>
-          <StyledLink to="/Form">
-            <u>Sign in</u>
-          </StyledLink>
+        <Menu.Item
+          key="item4"
+          title="Sign-In"
+          style={{ float: "right", fontSize: "17px" }}
+        >
+          <StyledLink to="/Form">Sign in</StyledLink>
         </Menu.Item>
 
         {/* <Menu.Item
@@ -69,35 +76,30 @@ export const Navigate = (title: any, total: any) => {
           </StyledLink>
         </Menu.Item> */}
 
-      <Menu.Item
+        <Menu.Item
           key="item3"
           title="table"
-          style={{ fontSize: "16px", float: "right" }}
+          style={{ fontSize: "17px", float: "right" }}
         >
-          <StyledLink to="/Contact">
-            <u>Contact us</u>
-          </StyledLink>
+          <StyledLink to="/Contact">Contact us</StyledLink>
         </Menu.Item>
 
         <Menu.Item
           key="item3.1"
           title="Shop"
-          style={{ fontSize: "16px", float: "right" }}
+          style={{ fontSize: "17px", float: "right" }}
         >
-          <StyledLink to="/Shop">
-            <u>Shop</u>
-          </StyledLink>
+          <StyledLink to="/Shop">Shop</StyledLink>
         </Menu.Item>
 
         <Menu.Item
           key="item1"
           title="home"
-          style={{ fontSize: "16px", float: "right", color: "red" }}
+          style={{ fontSize: "17px", float: "right", color: "red" }}
         >
-          <StyledLink to="/Home"><u>Home</u></StyledLink>
+          <StyledLink to="/Home">Home</StyledLink>
         </Menu.Item>
-      </Menu>
-      
+      </StyledMenu>
     </Header>
   );
 };

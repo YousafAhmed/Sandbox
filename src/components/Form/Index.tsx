@@ -46,7 +46,7 @@ const FormPage = () => {
   };
 
   return (
-    <Content>
+    <Content style={{marginBottom:"100px"}}>
       {contextHolder}
 
       <Content>
@@ -96,7 +96,7 @@ const FormPage = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
+              <Button style={{background: "#29465b", borderColor: "whitesmoke"}} type="primary" htmlType="submit">
                 Submit
               </Button>
               {/* <StyledButton>Button</StyledButton> */}

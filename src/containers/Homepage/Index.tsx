@@ -8,6 +8,10 @@ import {
   Image,
   Divider,
   Layout,
+  Form,
+  Input,
+  message,
+  Button,
 } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
@@ -35,6 +39,8 @@ import {
   StyledHeading3,
   StyledProductofDay,
   StyledAddToCart,
+  StyledSignupButton,
+  StyledColorButton,
 } from "./styles";
 
 const contentStyle: React.CSSProperties = {
@@ -58,6 +64,37 @@ const Page = () => {
     dispatch(getApiFetch());
     console.log("sent");
   }, [dispatch]);
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Successfully Signed Up!",
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: "Please enter your email",
+    });
+  };
+
+  const errorinfo = () => {
+    messageApi.open({
+      type: "error",
+      content: "Please enter your email",
+    });
+  };
+
+  const onFinish = (values: any) => {
+    return success();
+    // console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    return errorinfo();
+    // console.log("Failed:", errorInfo);
+  };
 
   return (
     <StyledContainer>
@@ -157,10 +194,11 @@ const Page = () => {
                       <StyledButton
                         size="large"
                         type="primary"
-                        onClick={() => setModalOpen(true)}
+                        onClick={(e) => setModalOpen(true)}
                       >
                         Shop now!
                       </StyledButton>
+
                       <Modal
                         centered
                         open={modalOpen}
@@ -169,7 +207,7 @@ const Page = () => {
                         footer={null}
                       >
                         <StyledCardimg
-                          // src={p.image}
+                          src={p.image}
                           preview={false}
                           alt="Image"
                         />
@@ -190,7 +228,7 @@ const Page = () => {
         </Row>
       </StyledPreviewContainer>
       <StyledHeading3>
-        <u>Product of the Day</u>
+        <u>Product of the Day!</u>
       </StyledHeading3>
       <StyledProductofDay>
         {previews.map((p: any) => {
@@ -200,25 +238,26 @@ const Page = () => {
                 <Image
                   style={{
                     marginTop: "20px",
-                    marginLeft: "80px",
-                    height: "95%",
-                    width: "85%",
+                    marginBottom:"20px",
+                    marginLeft: "40px",
+                    height: "90%",
+                    width: "92%",
                   }}
                   preview={false}
                   src={p.image}
                 />
-                <Content style={{background: "#cdd1ce", marginLeft:"40px" }}>
-                <Text
+                <Content style={{ background: "#cdd1ce", marginLeft: "40px",height:"420px" }}>
+                  <Text
                     style={{
                       display: "block",
                       // marginLeft: "10px",
-                      marginBottom:"30px",
+                      marginBottom: "30px",
                       fontWeight: "bold",
                       fontSize: "20px",
                       width: "100px",
                       textAlign: "center",
                       color: "whitesmoke",
-                      background:"#29465b"
+                      background: "#29465b",
                     }}
                   >
                     Save 25%
@@ -226,7 +265,8 @@ const Page = () => {
                   <Text
                     style={{
                       display: "block",
-                      marginLeft: "10px",
+                      marginLeft: "30px",
+                      marginRight: "30px",
                       fontWeight: "bold",
                       fontSize: "26px",
                       width: "700px",
@@ -237,11 +277,11 @@ const Page = () => {
                     {p.title}
                   </Text>
                   <Divider></Divider>
-                  
+
                   <Text
                     style={{
                       display: "block",
-                      marginLeft: "10px",
+                      marginLeft: "30px",
                       fontWeight: "bold",
                       fontSize: "20px",
                       width: "400px",
@@ -249,14 +289,14 @@ const Page = () => {
                       color: "#29465b",
                     }}
                   >
-                    Price: $749.00 <s style={{ color: "grey" }}>${p.price}</s>
+                    Price: $749.99 <s style={{ color: "grey" }}>${p.price}</s>
                   </Text>
 
                   <Text
                     style={{
                       display: "block",
-                      marginLeft: "10px",
-                      marginTop: "5px",
+                      marginLeft: "30px",
+                      marginTop: "8px",
                       fontWeight: "bold",
                       fontSize: "16px",
                       width: "400px",
@@ -266,6 +306,43 @@ const Page = () => {
                   >
                     Warranty: 1-Year Warranty
                   </Text>
+
+                  <Content style={{ display: "flex" }}>
+                    <Text
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "16px",
+                        marginLeft: "30px",
+                        marginTop: "25px",
+                        textAlign: "left",
+                        color: "#29465b",
+                      }}
+                    >
+                      Color-Family: &nbsp;
+                    </Text>
+                    <StyledColorButton
+                      style={{
+                        color: "white",
+                        background: "black",
+                      }}
+                    >
+                      black
+                    </StyledColorButton>
+                    <StyledColorButton
+                      style={{
+                        background: "silver",
+                      }}
+                    >
+                      Silver
+                    </StyledColorButton>
+                    <StyledColorButton
+                      style={{
+                        background: "white",
+                      }}
+                    >
+                      White
+                    </StyledColorButton>
+                  </Content>
 
                   <StyledAddToCart
                     onClick={() => dispatch(addToCart(p))}
@@ -279,6 +356,57 @@ const Page = () => {
             );
         })}
       </StyledProductofDay>
+
+      <Content
+        style={{
+          background: "#29465b",
+          marginTop: "50px",
+          marginLeft: "40px",
+          marginRight: "40px",
+          boxShadow: "2px 2px 10px #29465b",
+        }}
+      >
+        <Text
+          style={{ color: "whitesmoke", fontSize: "16px", marginTop: "20px" }}
+        >
+          Sign up to get the latest update on sales, new products and more...
+        </Text>
+        {contextHolder}
+        <Form
+          name="basic"
+          labelCol={{ span: 9 }}
+          wrapperCol={{ span: 18 }}
+          initialValues={{ remember: true }}
+          style={{ maxWidth: 860, marginTop: "15px", marginLeft: "45px" }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <Form.Item
+            style={{ color: "whitesmoke" }}
+            label="Email"
+            name="Email"
+            rules={[{ required: true, message: "Please enter your email!" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <StyledSignupButton
+              // style={{
+              //   marginBottom: "15px",
+              //   marginLeft: "50px",
+              //   background: "#29465b",
+              //   borderColor: "whitesmoke",
+              // }}
+              type="primary"
+              htmlType="submit"
+            >
+              Sign Up!
+            </StyledSignupButton>
+            {/* <StyledButton>Button</StyledButton> */}
+          </Form.Item>
+        </Form>
+      </Content>
     </StyledContainer>
   );
 };

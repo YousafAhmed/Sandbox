@@ -1,5 +1,13 @@
 import styled from "styled-components";
-import { Layout, PageHeader, Typography, Card, Button, Image } from "antd";
+import {
+  Layout,
+  PageHeader,
+  Typography,
+  Card,
+  Button,
+  Image,
+  List,
+} from "antd";
 
 const { Content } = Layout;
 const { Text } = Typography;
@@ -36,14 +44,13 @@ export const StyledEmptycartbutton = styled(Button)`
   background: #29465b;
   color: white;
   &.ant-btn-primary {
-    background:#29465b;
+    background: #29465b;
     border-color: #29465b;
   }
   &:hover {
     color: white;
     background: gray;
   }
-  
 `;
 
 export const StyledHeader = styled(PageHeader)`
@@ -71,18 +78,19 @@ export const StyledHeadingText = styled(Text)`
 `;
 
 export const StyledTextContainer = styled(Card)`
-  display: flex;
+  /* display: flex; */
   text-align: left;
-  margin-left: 280px;
-  margin-right: 200px;
+  margin-left: 72px;
+  margin-right: 94px;
   margin-top: 10px;
   height: 50px;
   border: none;
+  background: whitesmoke;
 `;
 
 export const StyledItemText = styled(Text)`
-  margin-left: 15px;
-  /* margin-right: 10px; */
+  margin-left: 11px;
+
   width: 50px;
   text-align: left;
   font-weight: 500;
@@ -91,7 +99,7 @@ export const StyledItemText = styled(Text)`
 `;
 
 export const StyledNameText = styled(Text)`
-  margin-left: 105px;
+  margin-left: 93px;
 
   width: 80px;
   text-align: center;
@@ -101,7 +109,7 @@ export const StyledNameText = styled(Text)`
 `;
 
 export const StyledPriceText = styled(Text)`
-  margin-left: 133px;
+  margin-left: 79px;
   width: 78px;
   text-align: center;
   font-weight: 500;
@@ -110,7 +118,7 @@ export const StyledPriceText = styled(Text)`
 `;
 
 export const StyledQuantityText = styled(Text)`
-  margin-left: 55px;
+  margin-left: 56px;
   width: 90px;
   text-align: center;
   font-weight: 500;
@@ -119,7 +127,7 @@ export const StyledQuantityText = styled(Text)`
 `;
 
 export const StyledTotalText = styled(Text)`
-  margin-left: 55px;
+  margin-left: 53px;
   width: 80px;
   text-align: center;
   font-weight: 500;
@@ -132,8 +140,8 @@ export const StyledFullcartcontainer = styled(Content)`
 `;
 
 export const StyledCartContainer = styled(Content)`
-  margin-left: 280px;
-  margin-right: 270px;
+  margin-left: 70px;
+  /* margin-right: 500px; */
   margin-bottom: 10px;
 `;
 
@@ -142,27 +150,31 @@ export const StyledCardContainer = styled(Card)`
   font-size: 15px;
   font-weight: 700;
   border-radius: 0%;
+  margin-right: 108px;
   border-width: 1px;
   border-color: #29465b;
   height: 120px;
   align-items: center;
+  box-shadow: 1px 1px 5px grey;
   &:hover {
     border-color: #9ac5f4;
+    box-shadow: 1px 1px 8px #29465b;
   }
 `;
 
 export const StyledCartimg = styled(Image)`
   display: flex;
   border-radius: 80%;
-  margin-top: 0px;
+  margin-top: 7px;
   margin-left: 20px;
-  width: 80px;
+  width: 70px;
   text-align: center;
 `;
 
 export const StyledTitleText = styled(Meta)`
-  margin-right: 50px;
-  width: 170px;
+  margin-right: 20px;
+  margin-left: 10px;
+  width: 150px;
   text-align: left;
   color: #29465b;
 `;
@@ -215,9 +227,10 @@ export const StyledClearCart = styled(Button)`
   font-size: 18px;
   display: flex;
   text-align: center;
+  color: red;
   align-items: center;
   justify-content: center;
-  margin-left: 263px;
+  margin-left: 51px;
   margin-right: 165px;
   /* margin-top: 5px; */
   /* background: #29465b; */
@@ -229,7 +242,7 @@ export const StyledClearCart = styled(Button)`
     border-color: #29465b;
   }
   &:hover {
-    color: grey;
+    color: #250909;
 
     background: white;
   }
@@ -237,13 +250,15 @@ export const StyledClearCart = styled(Button)`
 export const StyledContinueShopping = styled(Button)`
   /* margin: 14px; */
   /* border-radius: 5%; */
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
+  padding: 0px 0px;
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-left: 362px;
-  margin-right: 165px;
+  box-shadow: 1px 1px 10px grey;
+  margin-left: 293px;
+  /* margin-right: 25px; */
   /* margin-top: 5px; */
   background: #29465b;
   color: whitesmoke;
@@ -257,5 +272,47 @@ export const StyledContinueShopping = styled(Button)`
   &:hover {
     color: white;
     background: gray;
+    box-shadow: 1px 1px 10px #29465b;
   }
+`;
+
+export const StyledCheckoutcontainer = styled(Content)`
+  margin-right: 72px;
+  margin-top: 59px;
+  background: whitesmoke;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #29465b;
+  box-shadow: 2px 2px 10px grey;
+
+  /* &:hover {
+    box-shadow: 2px 2px 10px #29465b;
+  } */
+`;
+
+export const StyledList = styled(List)`
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 800px;
+  margin-top: 5px;
+  color: #29465b;
+`;
+
+export const StyledCheckoutButton = styled(Button)`
+  height: 40px;
+  width: 180px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  background: #29465b;
+  border-color: whitesmoke;
+  box-shadow: 1px 1px 10px grey;
+
+  &:hover{
+    box-shadow: 1px 1px 10px #29465b;
+  }
+  &.ant-btn-primary {
+    background: #29465b;
+    border-color: #29465b;
+  }
+
 `;

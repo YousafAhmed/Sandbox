@@ -4,8 +4,9 @@ import { Cart, UserState } from "./types3";
 export const initialState: UserState = {
   cart: [],
   isLoading: false,
-  cartTotalQuantity:0,
-  cartTotalAmount:0,
+  cartTotalQuantity: 0,
+  cartTotalAmount: 0,
+  
 };
 
 // console.log(initialState.cart)
@@ -60,14 +61,14 @@ const cartSlice = createSlice({
         state.cart = nextCartItems;
       }
     },
-    getTotals:(state, action) =>{
+    getTotals(state, action) {
       let { total, quantity } = state.cart.reduce(
         (cartTotal, cartItem) => {
-          const { price, quantity }:any = cartItem;
-          const itemTotal = price * quantity;
+          const { price, cartQuantity }:any = cartItem;
+          const itemTotal = price * cartQuantity;
 
           cartTotal.total += itemTotal;
-          cartTotal.quantity += quantity;
+          cartTotal.quantity += cartQuantity;
 
           return cartTotal;
         },
@@ -80,6 +81,27 @@ const cartSlice = createSlice({
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = total;
     },
+
+    // getCartTotal: (state) => {
+    //   let { totalQuantity, totalPrice } = state.cart.reduce(
+    //     (cartTotal, cartItem) => {
+    //       console.log("carttotal", cartTotal);
+    //       console.log("cartitem", cartItem);
+    //       const { price, quantity }:any = cartItem;
+    //       console.log(price, quantity);
+    //       const itemTotal = price * quantity;
+    //       cartTotal.totalPrice += itemTotal;
+    //       cartTotal.totalQuantity += quantity;
+    //       return cartTotal;
+    //     },
+    //     {
+    //       totalPrice: 0,
+    //       totalQuantity: 0,
+    //     }
+    //   );
+    //   state.totalPrice = parseInt(totalPrice.toFixed(2));
+    //   state.totalQuantity = totalQuantity;
+    // },
     clearCart: (state:any) =>{
       state.cart =[]
     },
