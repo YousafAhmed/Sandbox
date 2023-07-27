@@ -15,7 +15,7 @@ const { Text } = Typography;
 export const StyledContainer = styled(Content)`
   /* margin-top: 15px; */
   height: 55%;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 `;
 
 export const StyledSubContainer = styled(Content)`
@@ -113,10 +113,12 @@ export const StyledButtonstyle = styled(Button)`
   /* margin-left: 80px; */
   border-radius: 5%;
   background: #29465b;
+  border-color: whitesmoke;
   color: white;
   &:hover {
     color: white;
     background: gray;
+    border-color: #29465b;
   }
 `;
 
@@ -145,11 +147,13 @@ export const StyledCardcontainer = styled(Card)`
   text-align: center;
   font-size: 18px;
   font-weight: 700;
+  box-shadow: 2px 2px 10px grey;
   /* border-radius: 5%;
   border-width: 3px; */
   border-color: #29465b;
   &:hover {
     border-color: #84a7a1;
+    box-shadow: 1px 1px 15px #29465b;
   }
 `;
 
@@ -165,7 +169,7 @@ export const StyledPreviewContainer = styled(Content)`
   margin-left: 40px;
   margin-right: 40px;
   /* margin-top: 5px; */
-  margin-bottom: 20px;
+  margin-bottom: 70px;
 `;
 
 export const StyledPreviewSubcontainer = styled(Content)`
@@ -173,7 +177,7 @@ export const StyledPreviewSubcontainer = styled(Content)`
   height: 280px;
   margin-left: 5px;
   /* margin-top: 5px; */
-  /* margin-bottom: 20px; */
+  margin-bottom: 70px;
 `;
 
 export const StyledButton = styled(Button)`
@@ -217,13 +221,14 @@ export const StyledCartButton = styled(Button)`
 
 export const StyledHeading3 = styled(Typography)`
   height: 50px;
-  margin-left: 80px;
+  margin-left: 40px;
+  margin-bottom: 40px;
   text-align: left;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   font-family: "Play", sans-serif;
   color: #29465b;
-  margin-top: 90px;
+  margin-top: 0px;
   /* :hover {
     background: #eeeeee;
     color: #212a3e;
@@ -231,32 +236,60 @@ export const StyledHeading3 = styled(Typography)`
 `;
 
 export const StyledProductofDay = styled(Content)`
-  /* margin-left: 40px; */
+  margin-left: 40px;
   margin-right: 40px;
   margin-bottom: 20px;
   display: flex;
-  
+  box-shadow: 2px 2px 10px grey;
 `;
 
 export const StyledAddToCart = styled(Button)`
-  width:250px;
-  font-size: 20px;
-  margin-left: 80px;
+  width: 250px;
+  /* font-size: 20px; */
+  margin-left: 25px;
   margin-bottom: 10px;
   text-align: center;
   align-items: right;
   justify-content: right;
-  margin-top: 120px;
-  
+  margin-top: 40px;
+
   background: #29465b;
   color: white;
   &.ant-btn-primary {
-    background:#29465b;
+    background: #29465b;
     border-color: #29465b;
   }
   &:hover {
     color: white;
     background: gray;
   }
-  
 `;
+
+export const StyledSignupButton = styled(Button)`
+  margin-bottom: 15px;
+  margin-left: 50px;
+  background: #29465b;
+  border-color: whitesmoke;
+
+  &:hover {
+    color: #29465b;
+    background: whitesmoke;
+    border-color: whitesmoke;
+  }
+`;
+
+export const StyledColorButton = styled(Button)`
+    margin-right: 5px;
+    height: 40px;
+    margin-top: 19px;
+
+&:hover {
+    border-color: black;
+    color: grey;
+  }
+  &::selection {
+    color: black
+;
+border-color:whitesmoke;  }
+  
+`
